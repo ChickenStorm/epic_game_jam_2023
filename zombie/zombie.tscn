@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca48tywi7byo8"]
+
+[ext_resource type="Script" path="res://zombie/zombie.gd" id="1_dsd2w"]
+[ext_resource type="Shape3D" uid="uid://dyekool0te27" path="res://zombie/collision_shape.tres" id="2_3eat5"]
+[ext_resource type="CapsuleMesh" uid="uid://dwtofrxd0666u" path="res://zombie/new_capsule_mesh.tres" id="3_oexnm"]
+
+[node name="zombie" type="CharacterBody3D"]
+script = ExtResource("1_dsd2w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = ExtResource("2_3eat5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_oexnm")

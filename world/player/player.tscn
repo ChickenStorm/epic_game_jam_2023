@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://csy6wx5pw6qd4"]
+[gd_scene load_steps=8 format=3 uid="uid://csy6wx5pw6qd4"]
 
 [ext_resource type="Script" path="res://world/player/player.gd" id="1_ur2mt"]
+[ext_resource type="Script" path="res://world/player/state/StateMachine.gd" id="2_xr4yu"]
+[ext_resource type="Script" path="res://world/player/state/Move.gd" id="3_tjatc"]
+[ext_resource type="Script" path="res://world/player/state/Air.gd" id="4_dtvdn"]
+[ext_resource type="Script" path="res://world/player/state/Idle.gd" id="4_wkeol"]
+[ext_resource type="Script" path="res://world/player/state/Walk.gd" id="6_cg2ix"]
 
-[node name="Player" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bfs0"]
+
+[node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ur2mt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6bfs0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.81113)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_xr4yu")
+initial_state = NodePath("Move/Idle")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("3_tjatc")
+jump_impulse = 60
+
+[node name="Air" type="Node" parent="StateMachine/Move"]
+script = ExtResource("4_dtvdn")
+
+[node name="Idle" type="Node" parent="StateMachine/Move"]
+script = ExtResource("4_wkeol")
+
+[node name="Walk" type="Node" parent="StateMachine/Move"]
+script = ExtResource("6_cg2ix")

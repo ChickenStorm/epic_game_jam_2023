@@ -1,7 +1,8 @@
 @tool
 class_name Player
-extends Node3D
+extends CharacterBody3D
 
+@onready var state_machine:StateMachine = $StateMachine
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

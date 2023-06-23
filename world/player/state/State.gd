@@ -15,6 +15,7 @@ func _ready() -> void:
 	var parent = get_parent()
 	if not parent.is_in_group("state_machine"):
 		_parent = parent
+	print(_parent)
 
 
 #-----------------------------------------------------------------------------------------------

@@ -11,7 +11,7 @@ var _parent = null
 
 
 func _ready() -> void:
-	await(owner, "ready")
+	await owner.ready
 	var parent = get_parent()
 	if not parent.is_in_group("state_machine"):
 		_parent = parent

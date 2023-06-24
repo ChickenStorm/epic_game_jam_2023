@@ -46,6 +46,7 @@ func _on_next_char_timeout():
 func _on_next_msg_timeout():
 	if (current_message == len(messages) - 1):
 		$Start.show()
+		$Skip.hide()
 	else: 
 		current_message += 1
 		display = ""
@@ -60,4 +61,8 @@ func _input(event):
 
 
 func _on_start_pressed():
+	get_tree().change_scene_to_file("res://main.tscn")
+
+
+func _on_skip_pressed():
 	get_tree().change_scene_to_file("res://main.tscn")

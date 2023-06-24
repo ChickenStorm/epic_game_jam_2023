@@ -12,8 +12,8 @@ func _ready():
 	await get_tree().process_frame
 	if not overlaps_area($"../Area3D"):
 		print("q")
-#		queue_free()
-#		return
+		queue_free()
+		return
 	var array_z = []
 	for i in range(0, zombie_nuber):
 		var ok_pos = false

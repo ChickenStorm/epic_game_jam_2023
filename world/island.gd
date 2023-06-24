@@ -7,7 +7,12 @@ extends Node3D
 @onready var mesh: CSGPolygon3D = $CSGPolygon3D
 @onready var rect: Rect2 = bounds()
 
-const SPAWNER = [preload("res://world/logic/zombie_spawner.tscn")]
+const SPAWNER = [
+		preload("res://world/logic/zombie_spawner.tscn"),
+		preload("res://world/logic/zombie_spawner.tscn"),
+		preload("res://world/logic/TreeSpawner.tscn"),
+		preload("res://world/logic/wall_spawner.tscn"),
+	]
 const PLAYER_SPAWNER = preload("res://world/logic/PlayerSpwaner.tscn")
 
 var rng = RandomNumberGenerator.new()
@@ -20,7 +25,6 @@ func _ready():
 	$CSGCombiner3D/CSGPolygon3D.polygon = collision_shape.polygon
 	procedural_generation()
 	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -98,9 +102,8 @@ func procedural_generation():
 		current_difficulty += node.difficulity
 		current_spawner.append(node)
 	
-
 	await get_tree().process_frame
-
+	
 	if not $Area3D.overlaps_area(current_spawner[0]):
 		print("in water")
 		current_spawner[0].position.x = 0
@@ -108,8 +111,7 @@ func procedural_generation():
 		if $Player:
 			$Player.position.x = 0
 			$Player.position.z = -10
-	
 #	await get_tree().process_frame
 	$Area3D.monitoring = false
 	$Area3D.monitorable = false
-	
+

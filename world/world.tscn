@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://csy6wx5pw6qd4" path="res://world/player/player.tscn" id="1_ht0fj"]
 [ext_resource type="PackedScene" uid="uid://k8oe0xrpkp2k" path="res://world/collision/box.tscn" id="2_12ijr"]
+[ext_resource type="Material" uid="uid://4kept4umdktw" path="res://world/water.tres" id="3_jdvv1"]
 [ext_resource type="PackedScene" uid="uid://ca48tywi7byo8" path="res://zombie/zombie.tscn" id="3_lex8h"]
 [ext_resource type="PackedScene" uid="uid://c6qlso3ds0ort" path="res://world/decoration/ZombieHead.tscn" id="4_clr5j"]
 
@@ -11,14 +12,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iuwk"]
 albedo_color = Color(0.992157, 0.92549, 0.709804, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdljp"]
-transparency = 1
-albedo_color = Color(0.431373, 0.898039, 0.952941, 1)
-metallic = 0.29
-roughness = 0.31
-clearcoat = 0.07
-clearcoat_roughness = 0.13
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wva2j"]
 sky_top_color = Color(1, 0.913725, 0.823529, 1)
@@ -30,13 +23,13 @@ ground_curve = 0.0136604
 sun_angle_max = 45.48
 sun_curve = 0.643064
 
-[sub_resource type="Sky" id="Sky_fnpcg"]
+[sub_resource type="Sky" id="Sky_i6qfs"]
 sky_material = SubResource("ProceduralSkyMaterial_wva2j")
 
 [sub_resource type="Environment" id="Environment_8cv6p"]
 background_mode = 2
 background_energy_multiplier = 0.75
-sky = SubResource("Sky_fnpcg")
+sky = SubResource("Sky_i6qfs")
 ssr_fade_in = 0.212132
 glow_intensity = 1.32
 volumetric_fog_density = 0.0
@@ -75,7 +68,7 @@ shape = SubResource("WorldBoundaryShape3D_if3y7")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor2"]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -0.06, 0)
 mesh = SubResource("PlaneMesh_37a2s")
-surface_material_override/0 = SubResource("StandardMaterial3D_tdljp")
+surface_material_override/0 = ExtResource("3_jdvv1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8cv6p")
@@ -87,7 +80,6 @@ shadow_enabled = true
 
 [node name="zombie" parent="." instance=ExtResource("3_lex8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336849, -4.56951)
-maxHealth = 100.0
 
 [node name="ZHead" parent="." instance=ExtResource("4_clr5j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.938987, -3)

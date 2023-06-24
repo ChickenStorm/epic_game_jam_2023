@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mdt0dgpw2qw5"]
+
+[ext_resource type="Script" path="res://world/logic/tree_spawner.gd" id="1_37umt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_133es"]
+
+[node name="TreeSpawner" type="Area3D"]
+script = ExtResource("1_37umt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_133es")

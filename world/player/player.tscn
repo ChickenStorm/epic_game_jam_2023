@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://csy6wx5pw6qd4"]
+[gd_scene load_steps=10 format=3 uid="uid://csy6wx5pw6qd4"]
 
 [ext_resource type="Script" path="res://world/player/player.gd" id="1_ur2mt"]
 [ext_resource type="Script" path="res://world/player/state/StateMachine.gd" id="2_xr4yu"]
+[ext_resource type="ArrayMesh" uid="uid://bsd5bquxjj18t" path="res://world/player/Playere.obj" id="2_y0i3i"]
 [ext_resource type="Script" path="res://world/player/state/Move.gd" id="3_tjatc"]
 [ext_resource type="Script" path="res://world/player/state/Air.gd" id="4_dtvdn"]
 [ext_resource type="Script" path="res://world/player/state/Idle.gd" id="4_wkeol"]
@@ -13,21 +14,27 @@
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ur2mt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="skin" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6bfs0")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]
+[node name="weapon" parent="skin" instance=ExtResource("7_4pny1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+damage = 500.0
+range = 4.0
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="skin"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="skin"]
+
+[node name="Node3DPos" type="Node3D" parent="skin"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.628, 0.60131, -0.0709713)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="skin/Node3DPos"]
+mesh = ExtResource("2_y0i3i")
+skeleton = NodePath("../../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.889592, 0.456756, 0, -0.456756, 0.889592, 0, 2.17395, 3.81113)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-
-[node name="weapon" parent="." instance=ExtResource("7_4pny1")]
-damage = 500.0
-range = 5.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_xr4yu")

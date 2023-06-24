@@ -15,6 +15,7 @@ signal attacked(damage)
 
 func _ready():
 	scale_range()
+	$Range/CSGPolygon3D.polygon = $Range/CollisionPolygon3D.polygon
 
 
 func _process(delta):
@@ -30,7 +31,7 @@ func attack():
 
 func scale_range():
 	if range_area:
-		range_area.scale = Vector3(range, range , range)
+		range_area.scale = Vector3(range, 1 , range)
 
 
 func set_range(value):

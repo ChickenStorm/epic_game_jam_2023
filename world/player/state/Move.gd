@@ -6,7 +6,7 @@ extends PlayerState
 @export var move_acceleration: = 6.0
 @export var move_speed: = 0.0
 @export var max_fall_speed: = 50
-#@export(float, 0.1, 20.0, 0.1) var rotation_speed_factor: = 10.0
+@export_range(0.1, 20.0, 0.1) var rotation_speed_factor: float = 10.0
 
 var velocity: = Vector3.ZERO
 
@@ -24,8 +24,8 @@ func unhandled_input(event: InputEvent) -> void:
 func physics_process(delta: float) -> void:
 	var input_direction: = get_input_direction()
 
-	#var forwards: Vector3 = player.camera.global_transform.basis.z * input_direction.z
-	#var right: Vector3 = player.camera.global_transform.basis.x * input_direction.x
+	var forwards: Vector3 = player.camera.global_transform.basis.z * input_direction.z
+	var right: Vector3 = player.camera.global_transform.basis.x * input_direction.x
 	var move_direction: = input_direction
 	if move_direction.length() > 1.0:
 		move_direction = move_direction.normalized()
@@ -34,8 +34,8 @@ func physics_process(delta: float) -> void:
 	
 
 	# Rotation
-	#if move_direction:
-		#player.skin.rotation.y = lerp_angle(player.skin.rotation.y, atan2(move_direction.x, move_direction.z), delta * rotation_speed_factor)
+	if move_direction:
+		player.skin.rotation.y = lerp_angle(player.skin.rotation.y, atan2(move_direction.x, move_direction.z), delta * rotation_speed_factor)
 	# Movement
 	velocity = calculate_velocity(velocity, move_direction, delta)
 	#debug

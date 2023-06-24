@@ -7,6 +7,12 @@ script = ExtResource("1_va6k0")
 
 [node name="Range" type="Area3D" parent="."]
 
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Range"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 0)
+visible = false
+calculate_tangents = false
+polygon = PackedVector2Array(0, 0, 1, 1, 1, -1)
+
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Range"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 polygon = PackedVector2Array(0, 0, 1, 1, 1, -1)

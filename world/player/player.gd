@@ -11,7 +11,8 @@ signal attacked()
 @onready var current_health: float = max_health:
 	set = set_current_health
 @onready var state_machine:StateMachine = $StateMachine
-@onready var weapon: Weapon = $weapon
+@onready var weapon: Weapon = $skin/weapon
+@onready var skin: = $skin
 
 var camera: Camera3D
 

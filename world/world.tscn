@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://yv6mq1c15gaa"]
+[gd_scene load_steps=12 format=3 uid="uid://yv6mq1c15gaa"]
 
 [ext_resource type="PackedScene" uid="uid://csy6wx5pw6qd4" path="res://world/player/player.tscn" id="1_ht0fj"]
 [ext_resource type="PackedScene" uid="uid://k8oe0xrpkp2k" path="res://world/collision/box.tscn" id="2_12ijr"]
@@ -9,8 +9,16 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_37a2s"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdljp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iuwk"]
 albedo_color = Color(0.992157, 0.92549, 0.709804, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdljp"]
+transparency = 1
+albedo_color = Color(0.431373, 0.898039, 0.952941, 1)
+metallic = 0.29
+roughness = 0.31
+clearcoat = 0.07
+clearcoat_roughness = 0.13
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wva2j"]
 sky_top_color = Color(1, 0.827451, 0.635294, 1)
@@ -27,6 +35,7 @@ sky_material = SubResource("ProceduralSkyMaterial_wva2j")
 
 [sub_resource type="Environment" id="Environment_8cv6p"]
 background_mode = 2
+background_energy_multiplier = 0.75
 sky = SubResource("Sky_fnpcg")
 ssr_fade_in = 0.212132
 glow_intensity = 1.32
@@ -54,6 +63,18 @@ shape = SubResource("WorldBoundaryShape3D_if3y7")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05393, 0)
 mesh = SubResource("PlaneMesh_37a2s")
+surface_material_override/0 = SubResource("StandardMaterial3D_6iuwk")
+
+[node name="floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2"]
+transform = Transform3D(200.119, 0, 0, 0, 200.119, 0, 0, 0, 200.119, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_if3y7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor2"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -0.06, 0)
+mesh = SubResource("PlaneMesh_37a2s")
 surface_material_override/0 = SubResource("StandardMaterial3D_tdljp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -62,6 +83,7 @@ environment = SubResource("Environment_8cv6p")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.898947, -0.00327228, 0.438045, -0.438057, -0.00671512, 0.898922, 0, -0.999972, -0.00746999, 39.9147, 105.923, 0)
 visible = false
+light_energy = 0.1
 shadow_enabled = true
 
 [node name="zombie" parent="." instance=ExtResource("3_lex8h")]

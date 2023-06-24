@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 compile/*/*.pck
+version.tres
+locales/*.po.back
+locales/*.mo

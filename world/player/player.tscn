@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cal7tiyimf2vu" path="res://weapon/weapon.tscn" id="7_4pny1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bfs0"]
+size = Vector3(1, 2, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ur2mt")

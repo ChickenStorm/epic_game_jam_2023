@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name  Zombie
 
-signal died
+signal died()
 
 @export var maxHealth: float
 

@@ -1,21 +1,13 @@
-extends Node
+extends NPCState
+class_name NPCRoam
 
 var time_since_action = 0
-@export var action_interval = 3
+var action_interval = 3
 var angle = 0
 var speed = 0
 var rng = RandomNumberGenerator.new()
-var zombie 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	await owner.ready
-	zombie = owner
-	time_since_action = 0
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func physics_process(delta):
 	time_since_action += delta
 	if time_since_action >= action_interval:
 		time_since_action = 0

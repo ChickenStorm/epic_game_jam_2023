@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://world/island.gd" id="1_6fru6"]
 [ext_resource type="Material" uid="uid://dwpxqxeiq8n0l" path="res://world/sand.tres" id="2_5etcd"]
-[ext_resource type="Material" uid="uid://4kept4umdktw" path="res://world/water.tres" id="3_disyu"]
+[ext_resource type="Material" path="res://world/water.tres" id="3_disyu"]
 [ext_resource type="Script" path="res://world/wave.gd" id="3_f74tm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_06gcw"]

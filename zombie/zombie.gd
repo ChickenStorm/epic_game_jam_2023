@@ -9,7 +9,6 @@ var currentHealth: float:
 	set = set_current_health
 
 func _ready():
-	print(maxHealth, currentHealth)
 	currentHealth = maxHealth
 	$ZombieForm.visible = true
 	$ChrysalidForm.visible = false
@@ -21,7 +20,7 @@ func death():
 	emit_signal("died")
 	$ZombieForm.visible = false
 	$ChrysalidForm.visible = true
-	
+
 	
 func set_current_health(h):
 	currentHealth = h

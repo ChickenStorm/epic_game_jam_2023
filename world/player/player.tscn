@@ -14,6 +14,7 @@ size = Vector3(1, 2, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ur2mt")
+max_health = 1000.0
 
 [node name="skin" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6bfs0")

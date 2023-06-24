@@ -68,7 +68,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_xp0o6")
 theme_override_font_sizes/font_size = 36
-text = "Made with <3 by Aliénore, Aurélie, Louise, Ludo & Matt"
+text = "Made with <3 by Aliénore, Aurélie, Louise, Ludo & Matt
+In loving memory of RTX2700 SUPER"
 horizontal_alignment = 1
 vertical_alignment = 1
 

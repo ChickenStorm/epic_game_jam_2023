@@ -18,7 +18,7 @@ shape = SubResource("BoxShape3D_6bfs0")
 [node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.81113)
+transform = Transform3D(1, 0, 0, 0, 0.889592, 0.456756, 0, -0.456756, 0.889592, 0, 2.17395, 3.81113)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_xr4yu")

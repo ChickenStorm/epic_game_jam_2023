@@ -1,11 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://yv6mq1c15gaa"]
+[gd_scene load_steps=9 format=3 uid="uid://yv6mq1c15gaa"]
 
 [ext_resource type="PackedScene" uid="uid://csy6wx5pw6qd4" path="res://world/player/player.tscn" id="1_ht0fj"]
 [ext_resource type="PackedScene" uid="uid://k8oe0xrpkp2k" path="res://world/collision/box.tscn" id="2_12ijr"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_if3y7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_37a2s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdljp"]
+albedo_color = Color(0.992157, 0.92549, 0.709804, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wva2j"]
+sky_top_color = Color(1, 0.827451, 0.635294, 1)
+sky_horizon_color = Color(0.996078, 0.768627, 0.835294, 1)
+sky_curve = 0.184672
+ground_bottom_color = Color(0, 0.67451, 0.992157, 1)
+ground_horizon_color = Color(0.988235, 0.662745, 0.384314, 1)
+ground_curve = 0.0136604
+sun_angle_max = 45.48
+sun_curve = 0.643064
+
+[sub_resource type="Sky" id="Sky_fnpcg"]
+sky_material = SubResource("ProceduralSkyMaterial_wva2j")
+
+[sub_resource type="Environment" id="Environment_8cv6p"]
+background_mode = 2
+sky = SubResource("Sky_fnpcg")
+ssr_fade_in = 0.212132
+glow_intensity = 1.32
+volumetric_fog_density = 0.0
 
 [node name="world" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ht0fj")]
 
+[node name="box2" parent="." instance=ExtResource("2_12ijr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26769, -3.53389, 6.52053)
+visible = false
+
 [node name="box" parent="." instance=ExtResource("2_12ijr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3702, -2, 0)
+visible = false
+
+[node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(200.119, 0, 0, 0, 200.119, 0, 0, 0, 200.119, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_if3y7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05393, 0)
+mesh = SubResource("PlaneMesh_37a2s")
+surface_material_override/0 = SubResource("StandardMaterial3D_tdljp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8cv6p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.898947, -0.00327228, 0.438045, -0.438057, -0.00671512, 0.898922, 0, -0.999972, -0.00746999, 39.9147, 105.923, 0)
+visible = false
+shadow_enabled = true

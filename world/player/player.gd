@@ -38,7 +38,7 @@ func _process(delta):
 
 func death():
 	emit_signal("died")
-	# TODO
+	get_tree().change_scene_to_file("res://menu/GameOver.tscn")
 
 
 func attack():

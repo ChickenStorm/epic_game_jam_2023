@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca48tywi7byo8"]
+[gd_scene load_steps=5 format=3 uid="uid://ca48tywi7byo8"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_dsd2w"]
 [ext_resource type="Shape3D" uid="uid://dyekool0te27" path="res://zombie/collision_shape.tres" id="2_3eat5"]
 [ext_resource type="ArrayMesh" uid="uid://bhbuwol48u6ty" path="res://zombie/Zombie.obj" id="2_c6dd1"]
+[ext_resource type="ArrayMesh" uid="uid://cpbd8xjq823gx" path="res://zombie/ChrysacierMieuxQueNintendo.obj" id="4_siuwf"]
 
 [node name="zombie" type="CharacterBody3D"]
 script = ExtResource("1_dsd2w")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="ZombieForm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57763, -0.72086, -1.49246)
 mesh = ExtResource("2_c6dd1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49745, 0)
 shape = ExtResource("2_3eat5")
+
+[node name="ChrysalidForm" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0555253, 0, -0.998457, 0, 1, 0, 0.998457, 0, 0.0555253, 0, 4.44983, -0.685236)
+mesh = ExtResource("4_siuwf")

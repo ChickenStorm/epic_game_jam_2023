@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name  Zombie
+class_name Zombie
 
 signal died()
 
@@ -11,13 +11,17 @@ var currentHealth: float:
 func _ready():
 	print(maxHealth, currentHealth)
 	currentHealth = maxHealth
+	$ZombieForm.visible = true
+	$ChrysalidForm.visible = false
 
 func _process(delta):
 	pass
 	
 func death():
 	emit_signal("died")
-	queue_free()
+	$ZombieForm.visible = false
+	$ChrysalidForm.visible = true
+	
 	
 func set_current_health(h):
 	currentHealth = h

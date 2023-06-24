@@ -34,10 +34,13 @@ script = ExtResource("1_5l7p5")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-offset_bottom = 63.0
+anchor_bottom = 1.0
+offset_top = -39.0
 grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
@@ -68,7 +71,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "vie: "
+text = "life: "
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -77,13 +80,14 @@ theme = SubResource("Theme_2cug6")
 
 [node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "  Zombie transphormé.e.s: "
+text = "zombies turned back: "
 
 [node name="LabelZ" type="Label" parent="VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "0"
 
 [node name="Control2" type="Control" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2

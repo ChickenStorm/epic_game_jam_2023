@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfy38jxvg8mxv"
+path="res://.godot/imported/ChrysacierPlusLumineuxQueNintendo.obj-e35ea7108b3222b2154ba16df7657953.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ChrysacierPlusLumineuxQueNintendo.obj-e35ea7108b3222b2154ba16df7657953.mesh"]
+
+source_file="res://zombie/ChrysacierPlusLumineuxQueNintendo.obj"
+dest_files=["res://.godot/imported/ChrysacierPlusLumineuxQueNintendo.obj-e35ea7108b3222b2154ba16df7657953.mesh", "res://.godot/imported/ChrysacierPlusLumineuxQueNintendo.obj-e35ea7108b3222b2154ba16df7657953.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

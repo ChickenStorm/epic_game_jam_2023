@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cal7tiyimf2vu" path="res://weapon/weapon.tscn" id="7_4pny1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bfs0"]
-size = Vector3(1, 2, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ur2mt")
@@ -20,7 +19,7 @@ max_health = 1000.0
 shape = SubResource("BoxShape3D_6bfs0")
 
 [node name="weapon" parent="skin" instance=ExtResource("7_4pny1")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.418797, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.424001, 0.497826, 0.635539)
 damage = 500.0
 range = 4.0
 
@@ -28,6 +27,7 @@ range = 4.0
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.628, -0.356686, -0.0709713)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="skin/Node3DPos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = ExtResource("3_30ap4")
 skeleton = NodePath("../../..")
 

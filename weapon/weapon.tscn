@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cal7tiyimf2vu"]
+[gd_scene load_steps=5 format=3 uid="uid://cal7tiyimf2vu"]
 
 [ext_resource type="Script" path="res://weapon/weapon.gd" id="1_va6k0"]
+[ext_resource type="ArrayMesh" uid="uid://brltjr87rrprv" path="res://weapon/GuitareTr0pD4rk.obj" id="2_l0md2"]
+[ext_resource type="Material" uid="uid://g47xmv3b1en1" path="res://weapon/metal.tres" id="3_oxon2"]
+
+[sub_resource type="TextMesh" id="TextMesh_60et6"]
+material = ExtResource("3_oxon2")
+text = "🎶"
 
 [node name="weapon" type="Node3D"]
 script = ExtResource("1_va6k0")
@@ -14,7 +20,21 @@ calculate_tangents = false
 polygon = PackedVector2Array(0, 0, 1, 1, 1, -1)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Range"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.2, 0, 0)
 polygon = PackedVector2Array(0, 0, 1, 1, 1, -1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = ExtResource("2_l0md2")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 0.5
+randomness = 0.5
+mesh = SubResource("TextMesh_60et6")
+flatness = 0.4
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0

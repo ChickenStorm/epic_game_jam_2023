@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmedllx6nsg3o"]
+[gd_scene load_steps=9 format=3 uid="uid://bmedllx6nsg3o"]
 
 [ext_resource type="Script" path="res://world/island.gd" id="1_6fru6"]
 [ext_resource type="Material" uid="uid://dwpxqxeiq8n0l" path="res://world/sand.tres" id="2_5etcd"]
 [ext_resource type="Material" uid="uid://4kept4umdktw" path="res://world/water.tres" id="3_disyu"]
+[ext_resource type="Script" path="res://world/wave.gd" id="3_f74tm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_06gcw"]
 
@@ -31,10 +32,11 @@ volumetric_fog_density = 0.0
 script = ExtResource("1_6fru6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1000, 0, 0, 0, 100, 0, 0, 0, 1000, 0, 0.9, 0)
+transform = Transform3D(1000, 0, 0, 0, 100, 0, 0, 0, 1000, 0, -0.1, 0)
 mesh = SubResource("PlaneMesh_06gcw")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_disyu")
+script = ExtResource("3_f74tm")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 visible = false
@@ -58,8 +60,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 polygon = PackedVector2Array(2.66069, 1.44209, 15.5815, 3.77719, 34.885, 2.99882, 50.9193, 0.8194, 60.8823, -9.45501, 63.6844, -18.6397, 66.4866, -30.7822, 64.1515, -45.4154, 54.4997, -56.4682, 42.5129, -65.1859, 23.6765, -66.2756, 6.10692, -63.1544, -7.35523, -56.9585, -26, -51.3, -50.4, -55.5, -63.3054, -67.087, -81.3207, -69.133, -93.7463, -65.4063, -106.954, -60.9204, -116.561, -54.224, -120.86, -43.7272, -124.423, -31.8305, -123.525, -19.5726, -117.879, -7.1488, -114.094, 1.89143, -100.602, 5.90305, -91, 3.8, -82.4, 2.3, -77.7, 1.3, -74.2417, 0.8194, -57.4, -5.9, -38.7, -3.6, -29.3642, -0.482486, -17.328, 3.68118, -7.1467, 4.71123)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 0)
 polygon = PackedVector2Array(2.66069, 1.44209, 15.5815, 3.77719, 34.885, 2.99882, 50.9193, 0.8194, 60.8823, -9.45501, 63.6844, -18.6397, 66.4866, -30.7822, 64.1515, -45.4154, 54.4997, -56.4682, 42.5129, -65.1859, 23.6765, -66.2756, 6.10692, -63.1544, -7.35523, -56.9585, -26, -51.3, -50.4, -55.5, -63.3054, -67.087, -81.3207, -69.133, -93.7463, -65.4063, -106.954, -60.9204, -116.561, -54.224, -120.86, -43.7272, -124.423, -31.8305, -123.525, -19.5726, -117.879, -7.1488, -114.094, 1.89143, -100.602, 5.90305, -91, 3.8, -82.4, 2.3, -77.7, 1.3, -74.2417, 0.8194, -57.4, -5.9, -38.7, -3.6, -29.3642, -0.482486, -17.328, 3.68118, -7.1467, 4.71123)
+depth = 0.5
 material = ExtResource("2_5etcd")
 
 [node name="Area3D" type="Area3D" parent="."]

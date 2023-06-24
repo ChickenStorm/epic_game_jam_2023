@@ -5,6 +5,8 @@ signal died()
 
 @export var maxHealth: float
 
+var is_dead = false
+
 var currentHealth: float:
 	set = set_current_health
 
@@ -17,8 +19,10 @@ func _process(delta):
 	pass
 	
 func death():
-	$"../../CanvasLayer/gui".zombie_transphormed += 1
-	emit_signal("died")
+	if not is_dead:
+		$"../../CanvasLayer/gui".zombie_transphormed += 1
+		emit_signal("died")
+	is_dead = true
 	$ZombieForm.visible = false
 	$ChrysalidForm.visible = true
 

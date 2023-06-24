@@ -101,6 +101,7 @@ func procedural_generation():
 			node.position = pos
 		current_difficulty += node.difficulity
 		current_spawner.append(node)
+
 	
 	await get_tree().process_frame
 	
@@ -114,4 +115,5 @@ func procedural_generation():
 #	await get_tree().process_frame
 	$Area3D.monitoring = false
 	$Area3D.monitorable = false
+	
 

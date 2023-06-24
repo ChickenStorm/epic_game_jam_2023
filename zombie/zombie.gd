@@ -20,7 +20,11 @@ func _process(delta):
 	
 func death():
 	if not is_dead:
-		$"../../CanvasLayer/gui".zombie_transphormed += 1
+		var zombie_transformed = $"../../../CanvasLayer/gui".zombie_transphormed
+		zombie_transformed += 1
+		if zombie_transformed == get_parent().get_child_count():
+			get_tree().change_scene_to_file("res://menu/GameSuccess.tscn")
+		$"../../../CanvasLayer/gui".zombie_transphormed = zombie_transformed	
 		emit_signal("died")
 	is_dead = true
 	$ZombieForm.visible = false

@@ -31,7 +31,7 @@ func _ready():
 	for v in array_z:
 		var node = ZOMB.instantiate()
 		node.position = position + v
-		get_parent().add_child(node)
+		$"../Zombies".add_child(node)
 		check_zombie(node)
 	queue_free()
 

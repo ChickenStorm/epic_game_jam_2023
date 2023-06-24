@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://egavxga5y8on"]
+
+[ext_resource type="Script" path="res://world/logic/zombie_spawner.gd" id="1_njkj1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vahv3"]
+
+[node name="zombie_spawner" type="Area3D"]
+script = ExtResource("1_njkj1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_vahv3")

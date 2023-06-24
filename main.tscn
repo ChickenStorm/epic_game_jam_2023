@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://do8jt8djqu46d"]
+[gd_scene load_steps=7 format=3 uid="uid://do8jt8djqu46d"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1u0l2"]
 [ext_resource type="PackedScene" uid="uid://bmedllx6nsg3o" path="res://world/Island.tscn" id="2_fdfg8"]
 [ext_resource type="Script" path="res://BackgroundAudioManager.gd" id="3_0ed7e"]
 [ext_resource type="AudioStream" uid="uid://bxvnnti15wv7s" path="res://resources/audio/METAL_Mix.mp3" id="4_4k8w3"]
 [ext_resource type="AudioStream" uid="uid://pu6h2diag8j8" path="res://resources/audio/FUNK_Mix.mp3" id="5_lm6mc"]
+[ext_resource type="PackedScene" uid="uid://t13b3pm4d8rx" path="res://gui/gui.tscn" id="6_7bqjf"]
 
 [node name="main" type="CanvasLayer"]
 script = ExtResource("1_1u0l2")
@@ -25,3 +26,7 @@ autoplay = true
 
 [node name="Timer" type="Timer" parent="BackgroundAudioManager"]
 wait_time = 5.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="gui" parent="CanvasLayer" instance=ExtResource("6_7bqjf")]

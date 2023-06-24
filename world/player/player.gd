@@ -21,6 +21,8 @@ func _ready():
 	camera = get_node("Camera3D")
 	if not camera && Engine.is_editor_hint():
 		update_configuration_warnings()
+	$"../../CanvasLayer/gui".life = current_health
+	$"../../CanvasLayer/gui".max_life = max_health
 
 
 func _get_configuration_warnings(): 
@@ -49,5 +51,6 @@ func attack():
 
 func set_current_health(h):
 	current_health = h
+	$"../../CanvasLayer/gui".life = current_health
 	if h <= 0:
 		death()

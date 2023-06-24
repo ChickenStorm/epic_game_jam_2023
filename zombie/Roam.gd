@@ -2,7 +2,7 @@ extends NPCState
 class_name NPCRoam
 
 var time_since_action = 0
-@export var action_interval = 3
+var action_interval = 3
 var angle = 0
 var speed = 0
 var rng = RandomNumberGenerator.new()

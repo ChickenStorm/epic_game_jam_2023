@@ -26,7 +26,8 @@ func physics_process(delta: float) -> void:
 func enter(data: Dictionary = {}) -> void:
 	match data:
 		{"velocity": var v, "jump_impulse": var ji}:
-			_parent.velocity = v + Vector3(0, ji, 0)
+			_parent.velocity = Vector3(v.x, ji, v.z) # TODO
+			#print(v)
 	_parent.move_acceleration = move_acceleration
 	_parent.move_speed = move_speed
 	#skin.transition_to(skin.States.AIR)

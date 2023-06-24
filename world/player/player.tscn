@@ -11,6 +11,7 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ur2mt")
+max_health = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6bfs0")
@@ -28,7 +29,6 @@ initial_state = NodePath("Move/Idle")
 
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource("3_tjatc")
-jump_impulse = 60
 
 [node name="Air" type="Node" parent="StateMachine/Move"]
 script = ExtResource("4_dtvdn")

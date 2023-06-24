@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://yv6mq1c15gaa"]
+[gd_scene load_steps=10 format=3 uid="uid://yv6mq1c15gaa"]
 
 [ext_resource type="PackedScene" uid="uid://csy6wx5pw6qd4" path="res://world/player/player.tscn" id="1_ht0fj"]
 [ext_resource type="PackedScene" uid="uid://k8oe0xrpkp2k" path="res://world/collision/box.tscn" id="2_12ijr"]
+[ext_resource type="PackedScene" uid="uid://ca48tywi7byo8" path="res://zombie/zombie.tscn" id="3_lex8h"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_if3y7"]
 
@@ -33,6 +34,7 @@ volumetric_fog_density = 0.0
 [node name="world" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ht0fj")]
+max_health = 0.0
 
 [node name="box2" parent="." instance=ExtResource("2_12ijr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26769, -3.53389, 6.52053)
@@ -61,3 +63,7 @@ environment = SubResource("Environment_8cv6p")
 transform = Transform3D(0.898947, -0.00327228, 0.438045, -0.438057, -0.00671512, 0.898922, 0, -0.999972, -0.00746999, 39.9147, 105.923, 0)
 visible = false
 shadow_enabled = true
+
+[node name="zombie" parent="." instance=ExtResource("3_lex8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.56951)
+maxHealth = 100.0

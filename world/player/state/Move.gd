@@ -18,6 +18,8 @@ var velocity: = Vector3.ZERO
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		_state_machine.transition_to("Move/Air", { velocity = velocity, jump_impulse = jump_impulse })
+	elif event.is_action_pressed("attack"):
+		player.attack()
 
 func physics_process(delta: float) -> void:
 	var input_direction: = get_input_direction()
@@ -78,7 +80,8 @@ func get_input_direction() -> Vector3:
 	var v = Vector3(
 			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 			0,
-			Input.get_action_strength("move_back") - Input.get_action_strength("move_front")
+			0
+			#Input.get_action_strength("move_back") - Input.get_action_strength("move_front")
 		) if _state_machine._do_input_delegation else Vector3.ZERO
 	#print(v)
 	return v

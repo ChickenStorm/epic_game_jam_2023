@@ -43,6 +43,8 @@ func attack():
 	if weapon:
 		weapon.attack()
 		emit_signal("attacked")
+	var node = $"../../BackgroundAudioManager"
+	node.is_attacking = true
 
 
 func set_current_health(h):

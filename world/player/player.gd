@@ -11,10 +11,22 @@ signal attacked()
 @onready var current_health: float = max_health:
 	set = set_current_health
 @onready var state_machine:StateMachine = $StateMachine
+@onready var weapon: Weapon = $weapon
+
+var camera: Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	camera = get_node("Camera3D")
+	if not camera && Engine.is_editor_hint():
+		update_configuration_warnings()
+
+
+func _get_configuration_warnings(): 
+	if not camera:
+		return "missing Camera3D as a children"
+	else:
+		return []
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,8 +39,10 @@ func death():
 
 
 func attack():
-	#
-	emit_signal("attack")
+	if weapon:
+		weapon.attack()
+		emit_signal("attacked")
+
 
 func set_current_health(h):
 	current_health = h

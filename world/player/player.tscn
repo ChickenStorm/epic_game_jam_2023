@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://csy6wx5pw6qd4"]
+[gd_scene load_steps=9 format=3 uid="uid://csy6wx5pw6qd4"]
 
 [ext_resource type="Script" path="res://world/player/player.gd" id="1_ur2mt"]
 [ext_resource type="Script" path="res://world/player/state/StateMachine.gd" id="2_xr4yu"]
@@ -6,12 +6,12 @@
 [ext_resource type="Script" path="res://world/player/state/Air.gd" id="4_dtvdn"]
 [ext_resource type="Script" path="res://world/player/state/Idle.gd" id="4_wkeol"]
 [ext_resource type="Script" path="res://world/player/state/Walk.gd" id="6_cg2ix"]
+[ext_resource type="PackedScene" uid="uid://cal7tiyimf2vu" path="res://weapon/weapon.tscn" id="7_4pny1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bfs0"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ur2mt")
-max_health = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6bfs0")
@@ -22,6 +22,12 @@ shape = SubResource("BoxShape3D_6bfs0")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.889592, 0.456756, 0, -0.456756, 0.889592, 0, 2.17395, 3.81113)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="weapon" parent="." instance=ExtResource("7_4pny1")]
+damage = 500.0
+range = 5.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_xr4yu")

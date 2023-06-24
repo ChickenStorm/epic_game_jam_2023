@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name  Zombie
 
 signal died
 
@@ -20,5 +21,6 @@ func death():
 	
 func set_current_health(h):
 	currentHealth = h
+	# TODO zombie animation
 	if h <= 0:
 		death()

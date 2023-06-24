@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6qlso3ds0ort"]
+
+[ext_resource type="ArrayMesh" uid="uid://mghffnqveul5" path="res://world/decoration/ZombieHeadOnly.obj" id="1_n23gv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5htnl"]
+height = 1.5
+radius = 0.6
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_5htnl")
+
+[node name="ZombieHead" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.42556, -3.15026, 0)
+mesh = ExtResource("1_n23gv")

@@ -7,7 +7,12 @@ extends Node3D
 @onready var mesh: CSGPolygon3D = $CSGPolygon3D
 @onready var rect: Rect2 = bounds()
 
-const SPAWNER = [preload("res://world/logic/zombie_spawner.tscn")]
+const SPAWNER = [
+		preload("res://world/logic/zombie_spawner.tscn"),
+		preload("res://world/logic/zombie_spawner.tscn"),
+		preload("res://world/logic/TreeSpawner.tscn"),
+		preload("res://world/logic/wall_spawner.tscn"),
+	]
 const PLAYER_SPAWNER = preload("res://world/logic/PlayerSpwaner.tscn")
 
 var rng = RandomNumberGenerator.new()
@@ -15,14 +20,11 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	
 	mesh.polygon = collision_shape.polygon
 	$Area3D/CollisionPolygon3D.polygon = collision_shape.polygon
 	$CSGCombiner3D/CSGPolygon3D.polygon = collision_shape.polygon
 	procedural_generation()
 	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -54,6 +56,7 @@ func difficulity():
 func random_position() -> Vector3:
 	var x = rng.randf_range(rect.position.x, rect.position.x + rect.size.x )
 	var y = rng.randf_range(rect.position.y, rect.position.y + rect.size.y )
+#	print(x, y)
 	return Vector3(x, 0, y) 
 
 
@@ -79,6 +82,7 @@ func procedural_generation():
 	var target_diff = difficulity()
 	var current_spawner = []
 	
+	print(rect)
 	var p_spawn = PLAYER_SPAWNER.instantiate()
 	p_spawn.position = random_position()
 	while not is_valid_island_position(p_spawn):
@@ -87,7 +91,7 @@ func procedural_generation():
 	add_child(p_spawn)
 	
 	while current_difficulty < target_diff:
-		var node = SPAWNER[rng.randi_range(0,SPAWNER.size()-1)].instantiate()
+		var node = SPAWNER[rng.randi_range(0, SPAWNER.size()-1)].instantiate()
 		node._generate(level)
 		add_child(node)
 		var pos = random_position()
@@ -97,12 +101,17 @@ func procedural_generation():
 			node.position = pos
 		current_difficulty += node.difficulity
 		current_spawner.append(node)
-	await current_spawner[0].pre_ready
+	
+	await get_tree().process_frame
+	
 	if not $Area3D.overlaps_area(current_spawner[0]):
+		print("in water")
 		current_spawner[0].position.x = 0
 		current_spawner[0].position.z = -10
-	
-	await  get_tree().process_frame
-#	$Area3D.monitoring = false
-#	$Area3D.monitorable = false
-	
+		if $Player:
+			$Player.position.x = 0
+			$Player.position.z = -10
+#	await get_tree().process_frame
+	$Area3D.monitoring = false
+	$Area3D.monitorable = false
+

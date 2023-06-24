@@ -23,6 +23,7 @@ func _ready():
 
 func spawn_player():
 	var player = PALYER.instantiate()
+	player.name = "Player"
 	player.position = position + Vector3.UP
 	get_parent().add_child(player)
 	emit_signal("spawned", player)

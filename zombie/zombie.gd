@@ -17,6 +17,7 @@ func _process(delta):
 	pass
 	
 func death():
+	$"../../CanvasLayer/gui".zombie_transphormed += 1
 	emit_signal("died")
 	$ZombieForm.visible = false
 	$ChrysalidForm.visible = true

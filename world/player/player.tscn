@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://csy6wx5pw6qd4"]
+[gd_scene load_steps=10 format=3 uid="uid://csy6wx5pw6qd4"]
 
 [ext_resource type="Script" path="res://world/player/player.gd" id="1_ur2mt"]
 [ext_resource type="Script" path="res://world/player/state/StateMachine.gd" id="2_xr4yu"]
+[ext_resource type="ArrayMesh" uid="uid://bsd5bquxjj18t" path="res://world/player/Player.obj" id="3_ly15f"]
 [ext_resource type="Script" path="res://world/player/state/Move.gd" id="3_tjatc"]
 [ext_resource type="Script" path="res://world/player/state/Air.gd" id="4_dtvdn"]
 [ext_resource type="Script" path="res://world/player/state/Idle.gd" id="4_wkeol"]
@@ -30,6 +31,7 @@ range = 4.0
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.628, 0.60131, -0.0709713)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="skin/Node3DPos"]
+mesh = ExtResource("3_ly15f")
 skeleton = NodePath("../../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]

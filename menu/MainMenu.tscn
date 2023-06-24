@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dymuupdm565uk"]
+[gd_scene load_steps=4 format=3 uid="uid://dymuupdm565uk"]
 
 [ext_resource type="Script" path="res://menu/MainMenu.gd" id="1_bd3cy"]
+[ext_resource type="FontFile" uid="uid://b2fjsai516wbi" path="res://menu/SalmaAlfasans-Light.otf" id="2_8rei5"]
+[ext_resource type="Texture2D" uid="uid://c50rvf2lk582g" path="res://menu/beach.jpg" id="3_v6xri"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,10 +20,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -523.0
-offset_top = -82.0
-offset_right = 471.0
-offset_bottom = 333.0
+offset_left = -426.0
+offset_top = -158.0
+offset_right = 568.0
+offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.880004, 0.720003)
@@ -29,34 +31,27 @@ theme_override_constants/separation = 265
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8rei5")
 theme_override_font_sizes/font_size = 48
 text = "I want to start my super relaxing vacation!!"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8rei5")
 theme_override_font_sizes/font_size = 48
 text = "Nah I prefer to remain stressed :(("
 
-[node name="Control" type="Control" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -167.0
-offset_top = -89.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "controles: "
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_v6xri")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

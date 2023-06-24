@@ -15,5 +15,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CylinderShape3D_5htnl")
 
 [node name="ZombieHead" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4933, -3.15798, -0.18289)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4272, -3.15798, -0.18289)
 mesh = ExtResource("1_n23gv")

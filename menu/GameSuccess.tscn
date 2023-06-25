@@ -72,7 +72,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="BackToMain" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -87,6 +87,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_foc1v")
 theme_override_font_sizes/font_size = 36
-text = "Back to the main menu"
+text = "Back main menu"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BackToMain" to="." method="_on_back_to_main_pressed"]

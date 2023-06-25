@@ -33,7 +33,7 @@ mesh = ExtResource("3_30ap4")
 skeleton = NodePath("../../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.889592, 0.456756, 0, -0.456756, 0.889592, 0, 2.17395, 3.81113)
+transform = Transform3D(1, 0, 0, 0, 0.872198, 0.489154, 0, -0.489154, 0.872198, -0.203842, 2.87574, 6.92285)
 current = true
 
 [node name="StateMachine" type="Node" parent="."]

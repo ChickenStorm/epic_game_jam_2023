@@ -1,7 +1,7 @@
 @tool
 extends Node3D
 
-@export var level: int = 0
+@export var level: int = Global.level
 
 @onready var collision_shape: CollisionPolygon3D = $StaticBody3D/CollisionPolygon3D
 @onready var mesh: CSGPolygon3D = $CSGPolygon3D
@@ -26,13 +26,9 @@ func _ready():
 	procedural_generation()
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func bounds() -> Rect2:
-	var poly = collision_shape.polygon if collision_shape else []
+	var poly = collision_shape.polygon if collision_shape else PackedVector2Array([])
 	if poly.size() == 0:
 		return Rect2(Vector2(0,0), Vector2(0,0))
 	var max = poly[0]
@@ -61,7 +57,7 @@ func random_position() -> Vector3:
 
 
 
-func is_valid_island_position(node: Spawner) -> bool:
+func is_valid_island_position(_node: Spawner) -> bool:
 	return true
 
 func is_valid_position(node: Node, spawners: Array) -> bool:
@@ -73,7 +69,7 @@ func is_valid_position(node: Node, spawners: Array) -> bool:
 	return true
 	
 
-func generate_new_spawner(current_spawner): 
+func generate_new_spawner(_current_spawner): 
 	pass
 
 

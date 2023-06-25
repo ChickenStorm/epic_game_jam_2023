@@ -34,11 +34,6 @@ func _ready():
 	queue_free()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _generate(level):
+func _generate(_level):
 	number_of_tree = rng.randi_range(4, 8)
 	range = 4 + number_of_tree / 2

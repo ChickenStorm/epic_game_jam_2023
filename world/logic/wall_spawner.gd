@@ -10,8 +10,3 @@ func _ready():
 		return
 	
 	rotate_y(rng.randf_range(0.0, 2.0 * PI))
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

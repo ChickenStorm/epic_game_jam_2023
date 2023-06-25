@@ -28,7 +28,7 @@ func physics_process(delta: float) -> void:
 #	Fonction d'entrée et de sortie d'un state
 
 
-func enter(data: = {}) -> void:
+func enter(_data: = {}) -> void:
 	#skin.transition_to(skin.States.WALK)
 	#skin.is_moving = true
 	_parent.move_acceleration = move_acceleration

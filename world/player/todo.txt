@@ -1,0 +1,3 @@
+
+- amélioré les transistion de musics entre les menus
+- zombie plus de vie et plus d'attaque

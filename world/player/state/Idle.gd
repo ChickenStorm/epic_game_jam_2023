@@ -23,7 +23,7 @@ func physics_process(delta: float) -> void:
 #	Fonction d'entrée et de sortie d'un state
 
 
-func enter(data: Dictionary = {}) -> void:
+func enter(_data: Dictionary = {}) -> void:
 	_parent.velocity = Vector3.ZERO
 	_parent.move_acceleration = move_acceleration
 	_parent.move_speed = move_speed

@@ -5,7 +5,7 @@ signal pre_ready()
 
 const PALYER = preload("res://world/player/player.tscn")
 
-func _generate(level):
+func _generate(_level):
 	difficulity = 0
 	range = 20
 

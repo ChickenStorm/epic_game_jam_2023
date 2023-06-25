@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ct81mm6wvx0gc"]
+[gd_scene load_steps=15 format=3 uid="uid://ct81mm6wvx0gc"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_dsd2w"]
 [ext_resource type="Shape3D" uid="uid://dyekool0te27" path="res://zombie/collision_shape.tres" id="2_3eat5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://zombie/StateMachine.gd" id="4_dmuhn"]
 [ext_resource type="Script" path="res://zombie/Attack.gd" id="5_rykbv"]
 [ext_resource type="Script" path="res://zombie/Death.gd" id="6_kmw02"]
+[ext_resource type="Script" path="res://zombie/attack_zone.gd" id="8_22p5k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsjd8"]
 resource_name = "Green"
@@ -101,11 +102,14 @@ script = ExtResource("5_rykbv")
 
 [node name="AttackZone" type="Area3D" parent="."]
 transform = Transform3D(2.48956, 0, 0, 0, 2.48956, 0, 0, 0, 2.48956, 0, 1.49745, 0)
+script = ExtResource("8_22p5k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackZone"]
 transform = Transform3D(0.734242, 0, 0, 0, 0.734242, 0, 0, 0, 0.734242, 0, -0.249418, -0.501584)
 shape = SubResource("SphereShape3D_cmckd")
 
+[node name="Timer" type="Timer" parent="AttackZone"]
+wait_time = 0.6
+
 [connection signal="died" from="." to="StateMachine" method="_on_zombie_died"]
 [connection signal="body_entered" from="AggroZone" to="StateMachine" method="_on_aggro_zone_body_entered"]
-[connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]

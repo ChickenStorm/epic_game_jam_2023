@@ -30,6 +30,7 @@ volumetric_fog_density = 0.0
 
 [node name="Island" type="Node3D"]
 script = ExtResource("1_6fru6")
+level = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1000, 0, 0, 0, 100, 0, 0, 0, 1000, 0, -0.1, 0)

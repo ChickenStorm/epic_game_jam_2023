@@ -35,10 +35,6 @@ func _get_configuration_warnings():
 		return []
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func death():
 	emit_signal("died")
 	get_tree().change_scene_to_file("res://menu/GameOver.tscn")
@@ -55,5 +51,6 @@ func attack():
 func set_current_health(h):
 	current_health = h
 	$"../../CanvasLayer/gui".life = current_health
+	$Camera3D/AnimationPlayer.play("health")
 	if h <= 0:
 		death()

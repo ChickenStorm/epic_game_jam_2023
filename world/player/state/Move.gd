@@ -64,7 +64,7 @@ func physics_process(delta: float) -> void:
 #	Fonction d'entrée et de sortie d'un state
 
 
-func enter(data: Dictionary = {}) -> void:
+func enter(_data: Dictionary = {}) -> void:
 	pass
 
 

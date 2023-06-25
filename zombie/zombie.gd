@@ -18,8 +18,9 @@ func _ready():
 	
 	# we remove watery zombies
 	await get_tree().process_frame
-	if $"../../Area3D".overlaps_body(self):
-		queue_free()
+
+#	if not $"../../Area3D".overlaps_body($AttackZone):
+#		queue_free()
 
 func _process(delta):
 	pass
@@ -43,9 +44,3 @@ func set_current_health(h):
 	# TODO zombie animation
 	if h <= 0:
 		death()
-
-
-func _on_attack_zone_area_entered(area):
-	for node in $AttackZone.get_overlapping_bodies():
-		if node is Player:
-			node.current_health -= damage

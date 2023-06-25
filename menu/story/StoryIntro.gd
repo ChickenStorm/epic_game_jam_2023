@@ -17,7 +17,7 @@ var current_char = 0
 
 
 func _ready():
-	$Start.grab_focus()
+	$Skip.grab_focus()
 	start_dialogue()
 	$Start.hide()
 	$AudioStreamPlayer.connect("finished", _replay_music)
@@ -52,6 +52,7 @@ func _on_next_char_timeout():
 func _on_next_msg_timeout():
 	if (current_message == len(messages) - 1):
 		$Start.show()
+		$Start.grab_focus()
 		$Skip.hide()
 	else: 
 		current_message += 1

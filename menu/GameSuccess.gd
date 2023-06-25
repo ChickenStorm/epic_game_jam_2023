@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$NextLevel.grab_focus()
 	$AudioStreamPlayer.connect("finished", _replayer_music)
 	$NextLevel.connect("pressed", _next_level)
 	$HBoxContainer/Control4/GPUParticles2D2.emitting = true
@@ -10,7 +11,6 @@ func _ready():
 
 
 func _next_level():
-	$NextLevel.grab_focus()
 	Global.level += 1
 	get_tree().change_scene_to_file("res://main.tscn")
 	

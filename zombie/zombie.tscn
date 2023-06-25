@@ -198,7 +198,7 @@ process_material = SubResource("ParticleProcessMaterial_m45ri")
 draw_pass_1 = SubResource("SphereMesh_ktvae")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49745, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3763, 0)
 shape = ExtResource("2_3eat5")
 
 [node name="ChrysalidForm" type="MeshInstance3D" parent="."]

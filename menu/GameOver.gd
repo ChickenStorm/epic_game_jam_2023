@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Retry.grab_focus()
 	$AudioStreamPlayer.connect("finished", _replay_music)
 
 

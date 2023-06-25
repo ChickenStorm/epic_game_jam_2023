@@ -17,6 +17,7 @@ var current_char = 0
 
 
 func _ready():
+	$Start.grab_focus()
 	start_dialogue()
 	$Start.hide()
 	$AudioStreamPlayer.connect("finished", _replay_music)

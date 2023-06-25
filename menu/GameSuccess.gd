@@ -10,6 +10,7 @@ func _ready():
 
 
 func _next_level():
+	$NextLevel.grab_focus()
 	Global.level += 1
 	get_tree().change_scene_to_file("res://main.tscn")
 	

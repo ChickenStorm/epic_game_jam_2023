@@ -16,33 +16,61 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bd3cy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Start" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -426.0
-offset_top = -158.0
-offset_right = 568.0
-offset_bottom = 257.0
+offset_left = -480.0
+offset_top = -152.0
+offset_right = 480.0
+offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.880004, 0.720003)
-theme_override_constants/separation = 265
-
-[node name="Start" type="Button" parent="VBoxContainer"]
-layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8rei5")
 theme_override_font_sizes/font_size = 48
 text = "I want to start my super relaxing vacation!!"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.5
+offset_top = 71.0
+offset_right = 377.5
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_8rei5")
 theme_override_font_sizes/font_size = 48
 text = "Nah I prefer to remain stressed :(("
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 107.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "version: "
+label_settings = ExtResource("5_1sav0")
+
+[node name="LabelVersion" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+label_settings = ExtResource("5_1sav0")
+script = ExtResource("5_lv2i3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -61,27 +89,5 @@ stream = ExtResource("4_s3cwh")
 volume_db = -4.0
 autoplay = true
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 62.0
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
-layout_mode = 2
-text = "version: "
-label_settings = ExtResource("5_1sav0")
-
-[node name="LabelVersion" type="Label" parent="PanelContainer/HBoxContainer"]
-layout_mode = 2
-label_settings = ExtResource("5_1sav0")
-script = ExtResource("5_lv2i3")
-
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

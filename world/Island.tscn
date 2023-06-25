@@ -78,3 +78,10 @@ polygon = PackedVector2Array(2.66069, 1.44209, 15.5815, 3.77719, 34.885, 2.99882
 environment = SubResource("Environment_1eguw")
 
 [node name="Zombies" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.724882, 0.688873, 0, -0.688873, 0.724882, 0, 27.1766, 1.99989)
+shadow_opacity = 0.5
+directional_shadow_mode = 0
+directional_shadow_fade_start = 0.3
+directional_shadow_max_distance = 56.9

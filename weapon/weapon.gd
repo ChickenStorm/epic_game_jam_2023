@@ -13,6 +13,9 @@ signal attacked(damage)
 @onready var range_area = $Range
 @onready var attractor = $GPUParticlesAttractorBox3D
 
+var reloadSpeed = 0.7
+var canAttack = true
+
 func _ready():
 	scale_range()
 	$Range/CSGPolygon3D.polygon = $Range/CollisionPolygon3D.polygon
@@ -23,11 +26,15 @@ func _process(delta):
 
 
 func attack():
-	$GPUParticles3D.emitting = true
-	for node in range_area.get_overlapping_bodies():
-		if node is Zombie:
-			node.currentHealth -= damage
-	emit_signal("attacked", damage)
+	if canAttack:
+		$GPUParticles3D.emitting = true
+		for node in range_area.get_overlapping_bodies():
+			if node is Zombie:
+				node.currentHealth -= damage
+		emit_signal("attacked", damage)
+		canAttack = false
+		$ReloadTime.set_wait_time(reloadSpeed)
+		$ReloadTime.start()
 
 
 func scale_range():
@@ -47,3 +54,7 @@ func set_angle(value):
 		return
 	angle = value
 	scale_range()
+
+
+func _on_reload_time_timeout():
+	canAttack = true

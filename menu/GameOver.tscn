@@ -39,19 +39,20 @@ color = Color(0, 0, 0, 0.772549)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 164.0
-offset_top = -95.0
-offset_right = 164.0
-offset_bottom = -39.0
+offset_left = -565.5
+offset_top = -216.5
+offset_right = 565.5
+offset_bottom = -39.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.76, 1)
+scale = Vector2(1, 1.316)
 theme_override_fonts/font = ExtResource("3_xp0o6")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 44
 text = "Nooooo you let Gucchi turn into a funk zombie :(((( 
 Now there's nobody left to carry the legacy of the libras-who-love-sauerkraut-and-metal snif"
 horizontal_alignment = 1
@@ -70,7 +71,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_xp0o6")
 theme_override_font_sizes/font_size = 36
 text = "Made with <3 by Aliénore, Aurélie, Louise, Ludo & Matt
-In loving memory of RTX2700 SUPER"
+In loving memory of RTX2070 SUPER"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -66,3 +66,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 strength = 20.0
 directionality = 1.0
 size = Vector3(8, 8, 8)
+
+[node name="ReloadTime" type="Timer" parent="."]
+
+[connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]

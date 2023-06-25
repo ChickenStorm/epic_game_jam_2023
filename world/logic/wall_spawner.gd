@@ -24,4 +24,4 @@ func _ready():
 
 func _generate(_level):
 	node = WALL[rng.randi_range(0, WALL.size() - 1)].instantiate()
-	difficulity = node.difficulty
+	difficulity = node.difficulty if node else 1

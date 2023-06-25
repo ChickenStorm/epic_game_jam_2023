@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://csy6wx5pw6qd4"]
+[gd_scene load_steps=14 format=3 uid="uid://csy6wx5pw6qd4"]
 
 [ext_resource type="Script" path="res://world/player/player.gd" id="1_ur2mt"]
 [ext_resource type="Script" path="res://world/player/state/StateMachine.gd" id="2_xr4yu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://world/player/state/Idle.gd" id="4_wkeol"]
 [ext_resource type="Script" path="res://world/player/state/Walk.gd" id="6_cg2ix"]
 [ext_resource type="PackedScene" uid="uid://cal7tiyimf2vu" path="res://weapon/weapon.tscn" id="7_4pny1"]
+[ext_resource type="AudioStream" uid="uid://b2w8je4dc5qsa" path="res://zombie/Attack_player_1.mp3" id="9_g81vq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bfs0"]
 size = Vector3(1, 2, 1)
@@ -94,3 +95,8 @@ script = ExtResource("4_wkeol")
 
 [node name="Walk" type="Node" parent="StateMachine/Move"]
 script = ExtResource("6_cg2ix")
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_g81vq")
+volume_db = -4.0
+max_polyphony = 4

@@ -241,5 +241,7 @@ libraries = {
 "": SubResource("AnimationLibrary_02qns")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="died" from="." to="StateMachine" method="_on_zombie_died"]
 [connection signal="body_entered" from="AggroZone" to="StateMachine" method="_on_aggro_zone_body_entered"]

@@ -9,6 +9,7 @@ func _ready():
 
 
 func _on_entered(area):
+	$AudioStreamPlayer.play()
 	if area is Player:
 		area.current_health += health
 		queue_free()

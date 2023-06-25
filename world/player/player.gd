@@ -44,6 +44,7 @@ func death():
 func attack():
 	if weapon:
 		weapon.attack()
+		$attack.play()
 		emit_signal("attacked")
 	var node = $"../../BackgroundAudioManager"
 	node.is_attacking = true

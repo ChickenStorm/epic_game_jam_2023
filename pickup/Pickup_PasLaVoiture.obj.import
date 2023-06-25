@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwef0eo068mvy"
+path="res://.godot/imported/Pickup_PasLaVoiture.obj-d0fff9db4ca65d8920af459c1a2cde23.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pickup_PasLaVoiture.obj-d0fff9db4ca65d8920af459c1a2cde23.mesh"]
+
+source_file="res://pickup/Pickup_PasLaVoiture.obj"
+dest_files=["res://.godot/imported/Pickup_PasLaVoiture.obj-d0fff9db4ca65d8920af459c1a2cde23.mesh", "res://.godot/imported/Pickup_PasLaVoiture.obj-d0fff9db4ca65d8920af459c1a2cde23.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

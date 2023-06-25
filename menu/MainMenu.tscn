@@ -75,7 +75,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
-text = "version"
+text = "version: "
 label_settings = ExtResource("5_1sav0")
 
 [node name="LabelVersion" type="Label" parent="PanelContainer/HBoxContainer"]

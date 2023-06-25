@@ -52,9 +52,10 @@ initial_velocity_max = 15.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 40
+amount = 80
+lifetime = 0.75
 one_shot = true
-explosiveness = 0.5
+explosiveness = 0.35
 randomness = 0.5
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_3nokl")

@@ -25,7 +25,6 @@ func _ready():
 	$Area3D/CollisionPolygon3D.polygon = collision_shape.polygon
 	$CSGCombiner3D/CSGPolygon3D.polygon = collision_shape.polygon
 	procedural_generation()
-	
 
 
 func bounds() -> Rect2:
@@ -79,17 +78,19 @@ func procedural_generation():
 	var target_diff = difficulity()
 	var current_spawner = []
 	
-	print(rect)
+	# print(rect)
 	var p_spawn = PLAYER_SPAWNER.instantiate()
 	p_spawn.position = random_position()
 	while not is_valid_island_position(p_spawn):
 		p_spawn.position = random_position()
 	current_spawner.append(p_spawn)
+	p_spawn._generate(level)
 	add_child(p_spawn)
 	
 	
 	
 	while current_difficulty < target_diff:
+		# TODO check to avod infinit loop
 		var node
 		if current_spawner.size() < SPAWNER.size():
 			node = SPAWNER[current_spawner.size()].instantiate()
@@ -99,9 +100,14 @@ func procedural_generation():
 		add_child(node)
 		var pos = random_position()
 		node.position = pos
+		var i = 0
 		while not is_valid_position(node, current_spawner):
+			i += 1
+			# TODO
 			pos = random_position()
 			node.position = pos
+			if i >= 10000:
+				push_error("position for spawner not found")
 		current_difficulty += node.difficulity
 		current_spawner.append(node)
 

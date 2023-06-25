@@ -18,6 +18,7 @@ func _ready():
 		var x
 		var y
 		while not ok_pos:
+			# TODO check to avod infinit loop
 			x = rng.randf_range(-range_spawning, range_spawning)
 			y = rng.randf_range(-range_spawning, range_spawning)
 			ok_pos = true

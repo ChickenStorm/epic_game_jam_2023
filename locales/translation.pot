@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-06-24 22:07+0200\n"
+"POT-Creation-Date: 2023-06-25 11:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,15 +29,15 @@ msgstr ""
 msgid "0"
 msgstr ""
 
-#: menu/GameOver.tscn:71 menu/GameSuccess.tscn:50
-msgid "Made with <3 by Aliénore, Aurélie, Louise, Ludo & Matt"
-msgstr ""
-
-#: menu/GameOver.tscn:90
+#: menu/GameOver.tscn:92
 msgid "Try again!"
 msgstr ""
 
-#: menu/GameSuccess.tscn:69
+#: menu/GameOver.tscn:109
+msgid "Byeeee"
+msgstr ""
+
+#: menu/GameSuccess.tscn:71
 msgid ""
 "Well done :D you helped Gucchi turn every last person of the club back so"
 " that they can enjoy the rest of their vacation all together, talking "
@@ -45,19 +45,31 @@ msgid ""
 "libra is and how metal is of course the best music genre <3"
 msgstr ""
 
-#: menu/GameSuccess.tscn:89
-msgid "Back to the main menu"
+#: menu/GameSuccess.tscn:91
+msgid "Next level"
 msgstr ""
 
-#: menu/MainMenu.tscn:36
+#: menu/GameSuccess.tscn:108
+msgid "Back main menu"
+msgstr ""
+
+#: menu/MainMenu.tscn:39
 msgid "I want to start my super relaxing vacation!!"
 msgstr ""
 
-#: menu/MainMenu.tscn:42
+#: menu/MainMenu.tscn:45
 msgid "Nah I prefer to remain stressed :(("
 msgstr ""
 
-#: menu/story/StoryIntro.tscn:30
+#: menu/MainMenu.tscn:78
+msgid "version: "
+msgstr ""
+
+#: menu/story/StoryIntro.tscn:31
 msgid "Help Gucchi out!"
+msgstr ""
+
+#: menu/story/StoryIntro.tscn:66
+msgid "I really don't care, just let me play!"
 msgstr ""
 

@@ -6,17 +6,19 @@ signal died()
 @export var maxHealth: float
 @export var damage : float = 10
 
+@onready var zombie_form = $Mesh/ZombieForm
+
 var is_dead = false
 var is_in_water = false
+var rng = RandomNumberGenerator.new()
 
 var currentHealth: float:
 	set = set_current_health
 
 
-
 func _ready():
 	currentHealth = maxHealth
-	$ZombieForm.visible = true
+	zombie_form.visible = true
 	$ChrysalidForm.visible = false
 	
 	# we remove watery zombies
@@ -47,12 +49,22 @@ func death():
 		$"../../../CanvasLayer/gui".zombie_transphormed = zombie_transformed	
 		emit_signal("died")
 	is_dead = true
-	$ZombieForm.visible = false
+	zombie_form.visible = false
 	$ChrysalidForm.visible = true
 
 	
 func set_current_health(h):
+	if h != maxHealth \
+		&& currentHealth != null \
+		&& h < currentHealth \
+		&& $Mesh/GPUParticles3D:
+			$Mesh/GPUParticles3D.emitting = true
+
 	currentHealth = h
-	# TODO zombie animation
+	if $AnimationPlayer:
+		if rng.randi_range(0,1):
+			$AnimationPlayer.play("damage")
+		else:
+			$AnimationPlayer.play_backwards("damage")
 	if h <= 0:
 		death()

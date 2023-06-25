@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://world/player/state/Walk.gd" id="6_cg2ix"]
 [ext_resource type="PackedScene" uid="uid://cal7tiyimf2vu" path="res://weapon/weapon.tscn" id="7_4pny1"]
 [ext_resource type="AudioStream" uid="uid://b2w8je4dc5qsa" path="res://zombie/Attack_player_1.mp3" id="9_g81vq"]
+[ext_resource type="AudioStream" uid="uid://dy4nlda0a86o" path="res://world/player/Domage_placer_1.mp3" id="10_c5sxm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bfs0"]
 size = Vector3(1, 2, 1)
@@ -98,5 +99,10 @@ script = ExtResource("6_cg2ix")
 
 [node name="attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_g81vq")
+volume_db = -4.0
+max_polyphony = 4
+
+[node name="DmgReceived" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_c5sxm")
 volume_db = -4.0
 max_polyphony = 4

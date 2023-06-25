@@ -29,5 +29,7 @@ func _on_attack_zone_area_entered(_area):
 	for node in get_overlapping_bodies():
 		if node is Player:
 			node.current_health -= $"..".damage
+			if not $"../AudioStreamPlayer3D".is_playing():
+				$"../AudioStreamPlayer3D".play()
 			area_player = node
 			$Timer.start()

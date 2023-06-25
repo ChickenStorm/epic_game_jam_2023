@@ -10,6 +10,7 @@ func _physics_process(delta):
 	currentState.physics_process(delta)
 
 func _on_aggro_zone_body_entered(body):
+	zombie.get_node("Aggro").play()
 	currentState = get_node('Attack')
 	currentState.target = body
 	zombie.zombie_form.set_surface_override_material(0, angryMaterial)

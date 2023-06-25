@@ -21,5 +21,8 @@ func physics_process(delta):
 
 
 func set_target():
+	var node = zombie.get_node("AudioStreamPlayer3D2")
+	if not node.is_playing():
+		node.play()
 	angle = rng.randi_range(0, 360)
 	speed = rng.randf_range(0, 2) 

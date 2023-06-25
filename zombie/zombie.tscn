@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ct81mm6wvx0gc"]
+[gd_scene load_steps=30 format=3 uid="uid://ct81mm6wvx0gc"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_dsd2w"]
 [ext_resource type="Shape3D" uid="uid://dyekool0te27" path="res://zombie/collision_shape.tres" id="2_3eat5"]
@@ -8,6 +8,11 @@
 [ext_resource type="Script" path="res://zombie/Attack.gd" id="5_rykbv"]
 [ext_resource type="Script" path="res://zombie/Death.gd" id="6_kmw02"]
 [ext_resource type="Script" path="res://zombie/attack_zone.gd" id="8_22p5k"]
+[ext_resource type="AudioStream" uid="uid://b62vxwxhkhelm" path="res://zombie/Zombi_qui_aggro.mp3" id="9_cdfls"]
+[ext_resource type="AudioStream" uid="uid://dnlqpetdm5gd7" path="res://zombie/Zombi_qui_attaque.mp3" id="10_e4bbq"]
+[ext_resource type="AudioStream" uid="uid://bf615tksorvui" path="res://zombie/Zombi_qui_erre.mp3" id="11_sk7ba"]
+[ext_resource type="AudioStream" uid="uid://cmbilww145oya" path="res://zombie/Zombi_qui_prend_dommage.mp3" id="12_kj2e7"]
+[ext_resource type="AudioStream" uid="uid://dnw634y7qdsop" path="res://zombie/Zombi_qui_se_transforme_en_cocon.mp3" id="13_xdsy6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsjd8"]
 resource_name = "Green"
@@ -241,7 +246,22 @@ libraries = {
 "": SubResource("AnimationLibrary_02qns")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Aggro" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_cdfls")
+volume_db = -8.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_e4bbq")
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_sk7ba")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_kj2e7")
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_xdsy6")
 
 [connection signal="died" from="." to="StateMachine" method="_on_zombie_died"]
 [connection signal="body_entered" from="AggroZone" to="StateMachine" method="_on_aggro_zone_body_entered"]

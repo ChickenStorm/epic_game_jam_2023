@@ -52,7 +52,7 @@ _data = {
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 257
 script = ExtResource("1_ur2mt")
-max_health = 1000.0
+max_health = 100.0
 
 [node name="skin" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6bfs0")

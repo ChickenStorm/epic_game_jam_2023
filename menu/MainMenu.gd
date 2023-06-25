@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready():
-	$VBoxContainer/Start.grab_focus()
+	$Start.grab_focus()
 	$AudioStreamPlayer.connect("finished", _replay_music)
 
 

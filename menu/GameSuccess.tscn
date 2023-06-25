@@ -64,23 +64,22 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_foc1v")
 theme_override_font_sizes/font_size = 36
 text = "Made with <3 by Aliénore, Aurélie, Louise, Ludo & Matt
-In loving memory of RTX2700 SUPER"
+In loving memory of RTX2070 SUPER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 17)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 164.0
-offset_top = -95.0
-offset_right = 164.0
-offset_bottom = -39.0
+offset_top = -316.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.76, 1)
+scale = Vector2(1, 1.316)
 theme_override_fonts/font = ExtResource("3_foc1v")
 theme_override_font_sizes/font_size = 48
 text = "Well done :D you helped Gucchi turn every last person of the club back so that they can enjoy the rest of their vacation all together, talking about how sauerkraut is the best food ever, how big a hardship being a libra is and how metal is of course the best music genre <3"

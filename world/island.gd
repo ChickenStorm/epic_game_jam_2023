@@ -108,6 +108,7 @@ func procedural_generation():
 			node.position = pos
 			if i >= 10000:
 				push_error("position for spawner not found")
+				break
 		current_difficulty += node.difficulity
 		current_spawner.append(node)
 

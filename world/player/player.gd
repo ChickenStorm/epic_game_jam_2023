@@ -50,10 +50,10 @@ func attack():
 
 
 func set_current_health(h):
-	current_health = h
 	var hud = $"../../CanvasLayer/gui"
-	if hud:
+	if hud && h < current_health:
 		hud.life = current_health
 		$Camera3D/AnimationPlayer.play("health")
+	current_health = h
 	if h <= 0:
 		death()

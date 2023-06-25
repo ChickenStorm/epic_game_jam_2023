@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://p2psgljajx20"]
+[gd_scene load_steps=3 format=3 uid="uid://p2psgljajx20"]
 
+[ext_resource type="Script" path="res://world/decoration/wall.gd" id="1_2yrrv"]
 [ext_resource type="PackedScene" uid="uid://c6qlso3ds0ort" path="res://world/decoration/ZombieHead.tscn" id="1_fqc80"]
 
 [node name="CSGBox3D" type="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 use_collision = true
 size = Vector3(10, 6, 1)
+script = ExtResource("1_2yrrv")
 
 [node name="Node3D" parent="." instance=ExtResource("1_fqc80")]
 transform = Transform3D(0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, 0.819152, 4.6, 3, 0)

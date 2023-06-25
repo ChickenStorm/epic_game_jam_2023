@@ -12,10 +12,11 @@ func physics_process(delta):
 	if time_since_action >= action_interval:
 		time_since_action = 0
 		set_target()
-		zombie.velocity = Vector3.ZERO
+		zombie.velocity = Vector3.ZERO if zombie.is_on_floor() else Vector3.DOWN
 	else:
 		zombie.rotation.y = lerp_angle(zombie.rotation.y, angle, delta * 30)
-		zombie.velocity = Vector3(0, 0, - speed).rotated(Vector3.UP, zombie.rotation.y)
+		zombie.velocity = Vector3(0, 0, - speed).rotated(Vector3.UP, zombie.rotation.y) \
+			+ (Vector3.ZERO if zombie.is_on_floor() else Vector3.DOWN)
 	zombie.move_and_slide()
 
 

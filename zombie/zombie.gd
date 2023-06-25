@@ -16,6 +16,14 @@ var currentHealth: float:
 	set = set_current_health
 
 
+func _process(delta):
+	if position.y < -10:
+		is_in_water = true
+		queue_free()
+		print("ploof")
+		check_win_game()
+		
+
 func _ready():
 	currentHealth = maxHealth
 	zombie_form.visible = true
@@ -37,6 +45,7 @@ func check_win_game():
 	for node in get_parent().get_children():
 		if node is Zombie && not node.is_in_water:
 			count += 1
+	print(count, ", ", zombie_transformed)
 	if zombie_transformed == count:
 		get_tree().change_scene_to_file("res://menu/GameSuccess.tscn")
 
@@ -45,8 +54,8 @@ func death():
 	if not is_dead:
 		var zombie_transformed = $"../../../CanvasLayer/gui".zombie_transphormed
 		zombie_transformed += 1
+		$"../../../CanvasLayer/gui".zombie_transphormed = zombie_transformed
 		check_win_game()
-		$"../../../CanvasLayer/gui".zombie_transphormed = zombie_transformed	
 		emit_signal("died")
 	is_dead = true
 	zombie_form.visible = false

@@ -70,7 +70,7 @@ mesh = ExtResource("3_30ap4")
 skeleton = NodePath("../../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.872198, 0.489154, 0, -0.489154, 0.872198, -0.203842, 2.87574, 6.92285)
+transform = Transform3D(1, 0, 0, 0, 0.848048, 0.529919, 0, -0.529919, 0.848048, 0, 9, 12)
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]

@@ -7,9 +7,12 @@ signal died()
 @export var damage : float = 10
 
 var is_dead = false
+var is_in_water = false
 
 var currentHealth: float:
 	set = set_current_health
+
+
 
 func _ready():
 	currentHealth = maxHealth
@@ -19,19 +22,28 @@ func _ready():
 	# we remove watery zombies
 	await get_tree().process_frame
 
-#	if not $"../../Area3D".overlaps_body($AttackZone):
-#		queue_free()
+	if not $"../../Area3D".overlaps_body(self):
+		is_in_water = true
+		queue_free()
+		print("ploof")
+		check_win_game()
 
-func _process(delta):
-	pass
+
+func check_win_game():
+	var zombie_transformed = $"../../../CanvasLayer/gui".zombie_transphormed
+	var count = 0
+	for node in get_parent().get_children():
+		if node is Zombie && not node.is_in_water:
+			count += 1
+	if zombie_transformed == count:
+		get_tree().change_scene_to_file("res://menu/GameSuccess.tscn")
 
 
 func death():
 	if not is_dead:
 		var zombie_transformed = $"../../../CanvasLayer/gui".zombie_transphormed
 		zombie_transformed += 1
-		if zombie_transformed == get_parent().get_child_count():
-			get_tree().change_scene_to_file("res://menu/GameSuccess.tscn")
+		check_win_game()
 		$"../../../CanvasLayer/gui".zombie_transphormed = zombie_transformed	
 		emit_signal("died")
 	is_dead = true

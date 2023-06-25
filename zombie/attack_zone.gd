@@ -13,13 +13,17 @@ func _ready():
 func _on_timeout():
 	area_player.current_health -= $"..".damage 
 
+
 func _on_area_exited(_area):
 	for node in get_overlapping_bodies():
 		if node is Player:
 			return
+	stop_attack()
+
+
+func stop_attack():
 	area_player = null
 	$Timer.stop()
-
 
 func _on_attack_zone_area_entered(_area):
 	for node in get_overlapping_bodies():

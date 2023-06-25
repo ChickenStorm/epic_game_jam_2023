@@ -21,6 +21,7 @@ func _on_zombie_died():
 	print("argh")
 	zombie.rotation.z = 90.0
 	zombie.get_node("Collision").disabled = true
+	zombie.get_node("AttackZone").stop_attack()
 	zombie.get_node("AttackZone").disconnect("area_exited", Callable(zombie.get_node("AttackZone"), "_on_area_exited"))
 	zombie.get_node("AttackZone").monitoring = false
 	zombie.get_node("AttackZone").monitorable = false

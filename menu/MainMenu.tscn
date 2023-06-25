@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dymuupdm565uk"]
+[gd_scene load_steps=7 format=3 uid="uid://dymuupdm565uk"]
 
 [ext_resource type="Script" path="res://menu/MainMenu.gd" id="1_bd3cy"]
 [ext_resource type="FontFile" uid="uid://b2fjsai516wbi" path="res://menu/SalmaAlfasans-Light.otf" id="2_8rei5"]
 [ext_resource type="Texture2D" uid="uid://c50rvf2lk582g" path="res://menu/beach.jpg" id="3_v6xri"]
 [ext_resource type="AudioStream" uid="uid://pu6h2diag8j8" path="res://resources/audio/FUNK_Mix.mp3" id="4_s3cwh"]
+[ext_resource type="LabelSettings" uid="uid://cpxvak4xmj71q" path="res://menu/label_settings.tres" id="5_1sav0"]
+[ext_resource type="Script" path="res://menu/label_version.gd" id="5_lv2i3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -58,6 +60,28 @@ expand_mode = 1
 stream = ExtResource("4_s3cwh")
 volume_db = -4.0
 autoplay = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 62.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "version"
+label_settings = ExtResource("5_1sav0")
+
+[node name="LabelVersion" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+label_settings = ExtResource("5_1sav0")
+script = ExtResource("5_lv2i3")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

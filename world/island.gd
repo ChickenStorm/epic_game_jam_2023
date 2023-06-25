@@ -12,6 +12,7 @@ const SPAWNER = [
 		preload("res://world/logic/zombie_spawner.tscn"),
 		preload("res://world/logic/TreeSpawner.tscn"),
 		preload("res://world/logic/wall_spawner.tscn"),
+		preload("res://world/logic/BushSpawner.tscn"),
 	]
 const PLAYER_SPAWNER = preload("res://world/logic/PlayerSpwaner.tscn")
 
@@ -114,7 +115,7 @@ func procedural_generation():
 		if $Player:
 			$Player.position.x = 0
 			$Player.position.z = -10
-#	await get_tree().process_frame
+	await get_tree().process_frame
 	$Area3D.monitoring = false
 	$Area3D.monitorable = false
 	

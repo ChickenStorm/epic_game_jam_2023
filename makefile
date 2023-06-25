@@ -63,23 +63,23 @@ all: $(default-target)
 
 .PHONY: setup
 setup: $(version-file)
-	#$(copy) $(copy-flag) "$(file-config-dev)" "$(file-config-used)"
+#	$(copy) $(copy-flag) "$(file-config-dev)" "$(file-config-used)"
 
 
 .PHONY: production
 production: $(source-files) $(version-file) .FORCE
-	#$(copy) $(copy-flag) "$(file-config-prod)" "$(file-config-used)"
+#	$(copy) $(copy-flag) "$(file-config-prod)" "$(file-config-used)"
 	$(godot) $(godot-flag) "Windows" compile/windows/$(project-name).exe
 	$(godot) $(godot-flag) "Linux" compile/linux/$(project-name).x86_64
-	#$(copy) $(copy-flag) "$(file-config-dev)" "$(file-config-used)"
+#	$(copy) $(copy-flag) "$(file-config-dev)" "$(file-config-used)"
 
 
 .PHONY: debug
 debug: $(source-files) $(version-file) .FORCE
-	#$(copy) $(copy-flag) "$(file-config-prod)" "$(file-config-used)"
+#	$(copy) $(copy-flag) "$(file-config-prod)" "$(file-config-used)"
 	$(godot) $(godot-flag-debug) "Windows" compile/windows/$(project-name).exe
 	$(godot) $(godot-flag-debug) "Linux" compile/linux/$(project-name).x86_64
-	#$(copy) $(copy-flag) "$(file-config-dev)" "$(file-config-used)"
+#	$(copy) $(copy-flag) "$(file-config-dev)" "$(file-config-used)"
 
 
 .PHONY: debug-local

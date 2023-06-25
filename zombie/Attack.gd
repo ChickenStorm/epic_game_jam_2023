@@ -9,5 +9,7 @@ func physics_process(delta):
 	zombie.look_at(target.global_position)
 	zombie.rotation.x = initial_rotation.x
 	zombie.rotation.z = initial_rotation.z
-	zombie.velocity = Vector3(0,0,-5).rotated(Vector3.UP, initial_rotation.y)
+	zombie.velocity = Vector3(0,0,-5).rotated(Vector3.UP, initial_rotation.y) \
+		+ (Vector3.ZERO if zombie.is_on_floor() else Vector3.DOWN)
+	
 	zombie.move_and_slide()

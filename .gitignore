@@ -4,3 +4,4 @@ compile/*/*.pck
 version.tres
 locales/*.po.back
 locales/*.mo
+compile/linux/*.x86_64

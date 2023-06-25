@@ -60,6 +60,7 @@ func death():
 	is_dead = true
 	zombie_form.visible = false
 	$ChrysalidForm.visible = true
+	$AudioStreamPlayer3D4.play()
 
 	
 func set_current_health(h):
@@ -68,6 +69,7 @@ func set_current_health(h):
 		&& h < currentHealth \
 		&& $Mesh/GPUParticles3D:
 			$Mesh/GPUParticles3D.emitting = true
+			$AudioStreamPlayer3D3.play()
 
 	currentHealth = h
 	if $AnimationPlayer:

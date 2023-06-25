@@ -78,6 +78,7 @@ transform = Transform3D(-0.101056, 0, 0.99488, 0, 1, 0, -0.99488, 0, -0.101056, 
 mesh = ExtResource("3_8cx2m")
 
 [node name="AggroZone" type="Area3D" parent="."]
+transform = Transform3D(0.554951, 0, 0, 0, 0.554951, 0, 0, 0, 0.554951, 0, 0, -14.311)
 collision_mask = 256
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AggroZone"]

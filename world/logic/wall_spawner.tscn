@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkwrlenxv41jk"]
+[gd_scene load_steps=4 format=3 uid="uid://bkwrlenxv41jk"]
 
 [ext_resource type="Script" path="res://world/logic/wall_spawner.gd" id="1_1t6kv"]
+[ext_resource type="PackedScene" uid="uid://c6qlso3ds0ort" path="res://world/decoration/ZombieHead.tscn" id="2_f4uda"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1obwr"]
 
@@ -14,3 +15,21 @@ shape = SubResource("SphereShape3D_1obwr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 use_collision = true
 size = Vector3(10, 6, 1)
+
+[node name="Node3D" parent="." instance=ExtResource("2_f4uda")]
+transform = Transform3D(0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, 0.819152, 4.6, 4, 0)
+
+[node name="Node3D5" parent="." instance=ExtResource("2_f4uda")]
+transform = Transform3D(-0.819152, -2.28299e-08, 0.573576, -0.242404, 0.906308, -0.346189, -0.519837, -0.422618, -0.742404, -1.9, 4, 0)
+
+[node name="Node3D3" parent="." instance=ExtResource("2_f4uda")]
+transform = Transform3D(0.98106, 0.173648, 0.0858316, -0.172987, 0.984808, -0.0151344, -0.0871557, 0, 0.996195, 1.7, 4, 0)
+
+[node name="Node3D2" parent="." instance=ExtResource("2_f4uda")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0.122788, 0.984808, 0.122788, -0.696364, 0.173648, -0.696364, 3.3, 4, -0.3)
+
+[node name="Node3D4" parent="." instance=ExtResource("2_f4uda")]
+transform = Transform3D(-0.992404, 0.122788, 0.00759608, 0.122788, 0.984808, 0.122788, 0.00759614, 0.122788, -0.992404, -0.1, 4, 0)
+
+[node name="Node3D6" parent="." instance=ExtResource("2_f4uda")]
+transform = Transform3D(-0.956005, 0.291932, 0.0288026, 0.293252, 0.948524, 0.119603, 0.00759614, 0.122788, -0.992404, -4.5, 4, 0)

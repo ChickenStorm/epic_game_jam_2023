@@ -1,12 +1,15 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/Start.grab_focus()
+	$AudioStreamPlayer.connect("finished", _replay_music)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _replay_music():
+	$AudioStreamPlayer.play()
+
+
 func _process(delta):
 	pass
 

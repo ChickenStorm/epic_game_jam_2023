@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://csy6wx5pw6qd4" path="res://world/player/player.tscn" id="1_ht0fj"]
 [ext_resource type="PackedScene" uid="uid://k8oe0xrpkp2k" path="res://world/collision/box.tscn" id="2_12ijr"]
-[ext_resource type="Material" path="res://world/water.tres" id="3_jdvv1"]
+[ext_resource type="Material" uid="uid://4kept4umdktw" path="res://world/water.tres" id="3_jdvv1"]
 [ext_resource type="PackedScene" uid="uid://ct81mm6wvx0gc" path="res://zombie/zombie.tscn" id="3_lex8h"]
 [ext_resource type="PackedScene" uid="uid://c6qlso3ds0ort" path="res://world/decoration/ZombieHead.tscn" id="4_clr5j"]
 

@@ -11,7 +11,7 @@ signal attacked(damage)
 	set = set_angle
 
 @onready var range_area = $Range
-
+@onready var attractor = $GPUParticlesAttractorBox3D
 
 func _ready():
 	scale_range()
@@ -23,7 +23,7 @@ func _process(delta):
 
 
 func attack():
-	$CPUParticles3D.emitting = true
+	$GPUParticles3D.emitting = true
 	for node in range_area.get_overlapping_bodies():
 		if node is Zombie:
 			node.currentHealth -= damage

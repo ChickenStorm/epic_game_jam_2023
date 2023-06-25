@@ -25,7 +25,7 @@ stream = ExtResource("5_lm6mc")
 autoplay = true
 
 [node name="Timer" type="Timer" parent="BackgroundAudioManager"]
-wait_time = 5.0
+wait_time = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

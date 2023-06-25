@@ -2,8 +2,8 @@
 godot-path = C:/Users/Alienore/Documents/programation/Godot_v4.0.3-stable_win64/
 godot-name-executable-main = Godot_v4.0.3-stable
 
-project-name = zen
-itch-project = 
+project-name = funkation
+itch-project = chickenstorm/funkation
 
 
 ifeq ($(OS),Windows_NT)

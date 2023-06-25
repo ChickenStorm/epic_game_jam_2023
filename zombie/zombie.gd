@@ -15,10 +15,16 @@ func _ready():
 	currentHealth = maxHealth
 	$ZombieForm.visible = true
 	$ChrysalidForm.visible = false
+	
+	# we remove watery zombies
+	await get_tree().process_frame
+	if $"../../Area3D".overlaps_body(self):
+		queue_free()
 
 func _process(delta):
 	pass
-	
+
+
 func death():
 	if not is_dead:
 		var zombie_transformed = $"../../../CanvasLayer/gui".zombie_transphormed

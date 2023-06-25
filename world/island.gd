@@ -90,8 +90,14 @@ func procedural_generation():
 	current_spawner.append(p_spawn)
 	add_child(p_spawn)
 	
+	
+	
 	while current_difficulty < target_diff:
-		var node = SPAWNER[rng.randi_range(0, SPAWNER.size()-1)].instantiate()
+		var node
+		if current_spawner.size() < SPAWNER.size():
+			node = SPAWNER[current_spawner.size()].instantiate()
+		else:
+			node = SPAWNER[rng.randi_range(0, SPAWNER.size()-1)].instantiate()
 		node._generate(level)
 		add_child(node)
 		var pos = random_position()

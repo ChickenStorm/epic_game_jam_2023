@@ -1,10 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cal7tiyimf2vu"]
+[gd_scene load_steps=7 format=3 uid="uid://cal7tiyimf2vu"]
 
 [ext_resource type="Script" path="res://weapon/weapon.gd" id="1_va6k0"]
 [ext_resource type="ArrayMesh" uid="uid://brltjr87rrprv" path="res://weapon/GuitareTr0pD4rk.obj" id="2_l0md2"]
 [ext_resource type="Material" uid="uid://g47xmv3b1en1" path="res://weapon/metal.tres" id="3_oxon2"]
 
 [sub_resource type="TextMesh" id="TextMesh_60et6"]
+material = ExtResource("3_oxon2")
+text = "🎶"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3nokl"]
+spread = 40.0
+flatness = 0.4
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[sub_resource type="TextMesh" id="TextMesh_u2gn5"]
 material = ExtResource("3_oxon2")
 text = "🎶"
 
@@ -28,6 +38,7 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 mesh = ExtResource("2_l0md2")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+visible = false
 emitting = false
 amount = 40
 one_shot = true
@@ -36,5 +47,21 @@ randomness = 0.5
 mesh = SubResource("TextMesh_60et6")
 flatness = 0.4
 gravity = Vector3(0, -4, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 5.0
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 0.5
+randomness = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_3nokl")
+draw_pass_1 = SubResource("TextMesh_u2gn5")
+
+[node name="GPUParticlesAttractorBox3D" type="GPUParticlesAttractorBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+strength = 20.0
+directionality = 1.0
+size = Vector3(8, 8, 8)

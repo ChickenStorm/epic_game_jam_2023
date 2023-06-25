@@ -19,8 +19,13 @@ var current_char = 0
 func _ready():
 	start_dialogue()
 	$Start.hide()
-	
-	
+	$AudioStreamPlayer.connect("finished", _replay_music)
+
+
+func _replay_music():
+	$AudioStreamPlayer.play()
+
+
 func start_dialogue():
 	current_message = 0
 	display = ""

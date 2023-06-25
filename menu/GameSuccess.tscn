@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkap6n3pck3ui"]
+[gd_scene load_steps=5 format=3 uid="uid://dkap6n3pck3ui"]
 
 [ext_resource type="Script" path="res://menu/GameSuccess.gd" id="1_37bfy"]
 [ext_resource type="Texture2D" uid="uid://cp6s2so28epqr" path="res://menu/gladis-success.jpg" id="2_ek2h2"]
 [ext_resource type="FontFile" uid="uid://b2fjsai516wbi" path="res://menu/SalmaAlfasans-Light.otf" id="3_foc1v"]
+[ext_resource type="AudioStream" uid="uid://bxvnnti15wv7s" path="res://resources/audio/METAL_Mix.mp3" id="4_0igom"]
 
 [node name="GameSuccess" type="Control"]
 layout_mode = 3
@@ -88,5 +89,10 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_foc1v")
 theme_override_font_sizes/font_size = 36
 text = "Back main menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0igom")
+volume_db = -4.0
+autoplay = true
 
 [connection signal="pressed" from="BackToMain" to="." method="_on_back_to_main_pressed"]

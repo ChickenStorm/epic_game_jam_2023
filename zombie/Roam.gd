@@ -12,10 +12,12 @@ func physics_process(delta):
 	if time_since_action >= action_interval:
 		time_since_action = 0
 		set_target()
+		zombie.velocity = Vector3.ZERO
 	else:
 		zombie.rotation.y = lerp_angle(zombie.rotation.y, angle, delta * 30)
-		zombie.translate(Vector3(0,0,delta * speed))
-	
+		zombie.velocity = Vector3(0, 0, - speed).rotated(Vector3.UP, zombie.rotation.y)
+	zombie.move_and_slide()
+
 
 func set_target():
 	angle = rng.randi_range(0, 360)

@@ -21,10 +21,10 @@ func _ready():
 			y = rng.randf_range(-range, range)
 			ok_pos = true
 			for z in array_z:
-				if z.distance_to(Vector3(x, 4, y)) <= 1:
+				if z.distance_to(Vector3(x, 3, y)) <= 1:
 					ok_pos = false
 					break
-		array_z.append(Vector3(x, 4, y))
+		array_z.append(Vector3(x, 3, y))
 	for v in array_z:
 		var node = TREE.instantiate()
 		node.position = position + v

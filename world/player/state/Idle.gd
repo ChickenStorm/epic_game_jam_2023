@@ -28,8 +28,10 @@ func enter(data: Dictionary = {}) -> void:
 	_parent.move_acceleration = move_acceleration
 	_parent.move_speed = move_speed
 	#skin.transition_to(skin.States.IDLE)
+	player.weapon.attractor.visible = false
 	_parent.enter()
 
 
 func exit() -> void:
+	player.weapon.attractor.visible = true
 	_parent.exit()

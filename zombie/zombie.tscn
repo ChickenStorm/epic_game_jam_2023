@@ -235,7 +235,7 @@ transform = Transform3D(2.48956, 0, 0, 0, 2.48956, 0, 0, 0, 2.48956, 0, 1.49745,
 script = ExtResource("8_22p5k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackZone"]
-transform = Transform3D(0.640531, 0, 0, 0, 0.640531, 0, 0, 0, 0.640531, 0, -0.429696, -0.400737)
+transform = Transform3D(0.846841, 0, 0, 0, 0.846841, 0, 0, 0, 0.846841, -0.12136, -0.483101, -0.361996)
 shape = SubResource("BoxShape3D_tnovh")
 
 [node name="Timer" type="Timer" parent="AttackZone"]

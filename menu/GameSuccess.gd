@@ -5,6 +5,8 @@ extends Control
 func _ready():
 	$AudioStreamPlayer.connect("finished", _replayer_music)
 	$NextLevel.connect("pressed", _next_level)
+	$HBoxContainer/Control4/GPUParticles2D2.emitting = true
+	$HBoxContainer/Control5/GPUParticles2D.emitting = true
 
 
 func _next_level():

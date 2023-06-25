@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkap6n3pck3ui"]
+[gd_scene load_steps=6 format=3 uid="uid://dkap6n3pck3ui"]
 
 [ext_resource type="Script" path="res://menu/GameSuccess.gd" id="1_37bfy"]
 [ext_resource type="Texture2D" uid="uid://cp6s2so28epqr" path="res://menu/gladis-success.jpg" id="2_ek2h2"]
 [ext_resource type="FontFile" uid="uid://b2fjsai516wbi" path="res://menu/SalmaAlfasans-Light.otf" id="3_foc1v"]
 [ext_resource type="AudioStream" uid="uid://bxvnnti15wv7s" path="res://resources/audio/METAL_Mix.mp3" id="4_0igom"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1g0vl"]
+emission_shape = 1
+emission_sphere_radius = 100.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 5.0
+scale_max = 5.0
+color = Color(0, 0.0313726, 1, 1)
+hue_variation_max = 0.5
 
 [node name="GameSuccess" type="Control"]
 layout_mode = 3
@@ -106,6 +121,64 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_foc1v")
 theme_override_font_sizes/font_size = 36
 text = "Back main menu"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 196.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control5" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="HBoxContainer/Control5"]
+rotation = 0.486771
+emitting = false
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_1g0vl")
+lifetime = 6.0
+one_shot = true
+explosiveness = 0.8
+randomness = 0.2
+fixed_fps = 60
+visibility_rect = Rect2(-600, -700, 1300, 800)
+trail_enabled = true
+trail_lifetime = 0.2
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+
+[node name="Control4" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="HBoxContainer/Control4"]
+rotation = -0.486947
+emitting = false
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_1g0vl")
+lifetime = 6.0
+one_shot = true
+explosiveness = 0.8
+randomness = 0.2
+fixed_fps = 60
+visibility_rect = Rect2(-600, -700, 1300, 800)
+trail_enabled = true
+trail_lifetime = 0.2
+
+[node name="Control3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0igom")

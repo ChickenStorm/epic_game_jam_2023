@@ -1,16 +1,14 @@
 extends Node3D
 class_name Pickup
 
-@export var health: float = 10
+@export var health: float = 50
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree sfor the first time.
 func _ready():
-	$Area3D.connect("area_entered", _on_entered)
+	$Area3D.connect("body_entered", _on_entered)
 
 
 func _on_entered(area):
-	print("a")
 	if area is Player:
-		print("b")
-		area.health += health
+		area.current_health += health
 		queue_free()

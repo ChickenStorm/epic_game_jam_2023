@@ -11,7 +11,6 @@ func _ready():
 
 func _next_level():
 	Global.level += 1
-	print("t")
 	get_tree().change_scene_to_file("res://main.tscn")
 	
 

@@ -8,7 +8,7 @@ var range_spawning = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	await get_tree().process_frame
+	await get_tree().physics_frame
 	if not overlaps_area($"../Area3D"):
 		queue_free()
 		return

@@ -15,7 +15,7 @@ var node = null
 func _ready():
 	add_child(node)
 	node = null
-	await get_tree().process_frame
+	await get_tree().physics_frame
 	if not overlaps_area($"../Area3D"):
 		queue_free()
 		return

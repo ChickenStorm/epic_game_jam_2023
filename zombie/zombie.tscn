@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ct81mm6wvx0gc"]
+[gd_scene load_steps=13 format=3 uid="uid://ct81mm6wvx0gc"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_dsd2w"]
 [ext_resource type="Shape3D" uid="uid://dyekool0te27" path="res://zombie/collision_shape.tres" id="2_3eat5"]
@@ -61,6 +61,8 @@ _surfaces = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_h4b4f"]
 radius = 30.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_cmckd"]
+
 [node name="zombie" type="CharacterBody3D"]
 script = ExtResource("1_dsd2w")
 maxHealth = 100.0
@@ -70,11 +72,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.594
 mesh = SubResource("ArrayMesh_l6c0o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49745, 0)
+transform = Transform3D(2.48956, 0, 0, 0, 2.48956, 0, 0, 0, 2.48956, 0, 1.49745, 0)
 shape = ExtResource("2_3eat5")
 
 [node name="ChrysalidForm" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.101056, 0, 0.99488, 0, 1, 0, -0.99488, 0, -0.101056, 0, 4.44983, -0.685236)
+visible = false
 mesh = ExtResource("3_8cx2m")
 
 [node name="AggroZone" type="Area3D" parent="."]
@@ -93,4 +96,12 @@ script = ExtResource("4_20tsc")
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("5_rykbv")
 
+[node name="AttackZone" type="Area3D" parent="."]
+transform = Transform3D(2.48956, 0, 0, 0, 2.48956, 0, 0, 0, 2.48956, 0, 1.49745, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackZone"]
+transform = Transform3D(0.734242, 0, 0, 0, 0.734242, 0, 0, 0, 0.734242, 0, -0.249418, -0.501584)
+shape = SubResource("SphereShape3D_cmckd")
+
 [connection signal="body_entered" from="AggroZone" to="StateMachine" method="_on_aggro_zone_body_entered"]
+[connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]

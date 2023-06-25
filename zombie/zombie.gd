@@ -4,6 +4,7 @@ class_name Zombie
 signal died()
 
 @export var maxHealth: float
+@export var damage : float = 10
 
 var is_dead = false
 
@@ -36,3 +37,9 @@ func set_current_health(h):
 	# TODO zombie animation
 	if h <= 0:
 		death()
+
+
+func _on_attack_zone_area_entered(area):
+	for node in $AttackZone.get_overlapping_bodies():
+		if node is Player:
+			node.current_health -= damage

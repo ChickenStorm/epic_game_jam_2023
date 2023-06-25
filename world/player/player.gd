@@ -8,16 +8,19 @@ signal attacked()
 
 @export var max_health: float
 
-@onready var current_health: float = max_health:
-	set = set_current_health
+
 @onready var state_machine:StateMachine = $StateMachine
 @onready var weapon: Weapon = $skin/weapon
 @onready var skin: = $skin
+
+var current_health: float:
+	set = set_current_health
 
 var camera: Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	current_health = max_health
 	camera = get_node("Camera3D")
 	if not camera && Engine.is_editor_hint():
 		update_configuration_warnings()

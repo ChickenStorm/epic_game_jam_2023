@@ -88,7 +88,7 @@ func procedural_generation():
 	add_child(p_spawn)
 	
 	
-	
+#	print(target_diff)
 	while current_difficulty < target_diff:
 		# TODO check to avod infinit loop
 		var node
@@ -113,7 +113,7 @@ func procedural_generation():
 		current_spawner.append(node)
 
 	
-	await get_tree().process_frame
+	await get_tree().physics_frame
 	
 	if not $Area3D.overlaps_area(current_spawner[0]):
 		print("in water")
@@ -122,8 +122,8 @@ func procedural_generation():
 		if $Player:
 			$Player.position.x = 0
 			$Player.position.z = -10
-	await get_tree().process_frame
-	$Area3D.monitoring = false
-	$Area3D.monitorable = false
+#	await get_tree().process_frame
+#	$Area3D.monitoring = false
+#	$Area3D.monitorable = false
 	
 

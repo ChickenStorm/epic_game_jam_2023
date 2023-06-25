@@ -9,7 +9,7 @@ var zombie_nuber = 1
 
 
 func _ready():
-	await get_tree().process_frame
+	await get_tree().physics_frame
 	if not overlaps_area($"../Area3D"):
 		queue_free()
 		return

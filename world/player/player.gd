@@ -20,7 +20,7 @@ var camera: Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	current_health = max_health
+	set_current_health(max_health)
 	camera = get_node("Camera3D")
 	if not camera && Engine.is_editor_hint():
 		update_configuration_warnings()
@@ -50,10 +50,12 @@ func attack():
 
 
 func set_current_health(h):
+	var back_health = current_health
+	current_health = min(max_health, h)
 	var hud = $"../../CanvasLayer/gui"
-	if hud && h < current_health:
+	if hud:
 		hud.life = current_health
-		$Camera3D/AnimationPlayer.play("health")
-	current_health = h
+		if h < back_health:
+			$Camera3D/AnimationPlayer.play("health")
 	if h <= 0:
 		death()

@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://zombie/Roam.gd" id="4_20tsc"]
 [ext_resource type="Script" path="res://zombie/StateMachine.gd" id="4_dmuhn"]
 [ext_resource type="Script" path="res://zombie/Attack.gd" id="5_rykbv"]
+[ext_resource type="Script" path="res://zombie/Death.gd" id="6_kmw02"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsjd8"]
 resource_name = "Green"
@@ -71,13 +72,12 @@ maxHealth = 100.0
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.59486, -0.72086, 1.55884)
 mesh = SubResource("ArrayMesh_l6c0o")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2.48956, 0, 0, 0, 2.48956, 0, 0, 0, 2.48956, 0, 1.49745, 0)
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49745, 0)
 shape = ExtResource("2_3eat5")
 
 [node name="ChrysalidForm" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.101056, 0, 0.99488, 0, 1, 0, -0.99488, 0, -0.101056, 0, 4.44983, -0.685236)
-visible = false
+transform = Transform3D(-0.101056, 0, 0.99488, 0, 1, 0, -0.99488, 0, -0.101056, -6.43856e-08, 2.97686, 0.889832)
 mesh = ExtResource("3_8cx2m")
 
 [node name="AggroZone" type="Area3D" parent="."]
@@ -93,6 +93,9 @@ script = ExtResource("4_dmuhn")
 [node name="Roam" type="Node" parent="StateMachine"]
 script = ExtResource("4_20tsc")
 
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("6_kmw02")
+
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("5_rykbv")
 
@@ -103,5 +106,6 @@ transform = Transform3D(2.48956, 0, 0, 0, 2.48956, 0, 0, 0, 2.48956, 0, 1.49745,
 transform = Transform3D(0.734242, 0, 0, 0, 0.734242, 0, 0, 0, 0.734242, 0, -0.249418, -0.501584)
 shape = SubResource("SphereShape3D_cmckd")
 
+[connection signal="died" from="." to="StateMachine" method="_on_zombie_died"]
 [connection signal="body_entered" from="AggroZone" to="StateMachine" method="_on_aggro_zone_body_entered"]
 [connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]

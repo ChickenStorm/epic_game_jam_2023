@@ -14,3 +14,10 @@ func _on_aggro_zone_body_entered(body):
 	currentState.target = body
 	$"../ZombieForm".set_surface_override_material(0, angryMaterial)
 	print("agrougrou")
+
+
+func _on_zombie_died():
+	currentState = get_node("Death")
+	print("argh")
+	zombie.rotation.z = 90.0
+	zombie.get_node("Collision").disabled = true

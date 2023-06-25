@@ -13,7 +13,7 @@ signal attacked(damage)
 @onready var range_area = $Range
 @onready var attractor = $GPUParticlesAttractorBox3D
 
-var reloadSpeed = 0.7
+var reloadSpeed = 0.2
 var canAttack = true
 
 func _ready():

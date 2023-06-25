@@ -107,7 +107,7 @@ height = 0.1
 [sub_resource type="SphereShape3D" id="SphereShape3D_h4b4f"]
 radius = 30.0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_cmckd"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnovh"]
 
 [sub_resource type="Animation" id="Animation_7sfax"]
 length = 0.001
@@ -203,10 +203,11 @@ shape = ExtResource("2_3eat5")
 
 [node name="ChrysalidForm" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.101056, 0, 0.99488, 0, 1, 0, -0.99488, 0, -0.101056, -6.43856e-08, 2.97686, 0.889832)
+visible = false
 mesh = ExtResource("3_8cx2m")
 
 [node name="AggroZone" type="Area3D" parent="."]
-transform = Transform3D(0.554951, 0, 0, 0, 0.554951, 0, 0, 0, 0.554951, 0, 0, -14.311)
+transform = Transform3D(0.445446, 0, 0, 0, 0.445446, 0, 0, 0, 0.445446, 0, 0, -11.5957)
 collision_mask = 256
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AggroZone"]
@@ -229,8 +230,8 @@ transform = Transform3D(2.48956, 0, 0, 0, 2.48956, 0, 0, 0, 2.48956, 0, 1.49745,
 script = ExtResource("8_22p5k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackZone"]
-transform = Transform3D(0.734242, 0, 0, 0, 0.734242, 0, 0, 0, 0.734242, 0, -0.249418, -0.501584)
-shape = SubResource("SphereShape3D_cmckd")
+transform = Transform3D(0.640531, 0, 0, 0, 0.640531, 0, 0, 0, 0.640531, 0, -0.429696, -0.400737)
+shape = SubResource("BoxShape3D_tnovh")
 
 [node name="Timer" type="Timer" parent="AttackZone"]
 wait_time = 0.6

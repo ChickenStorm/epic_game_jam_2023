@@ -58,5 +58,6 @@ func set_current_health(h):
 		hud.life = current_health
 		if h < back_health:
 			$Camera3D/AnimationPlayer.play("health")
+			$DmgReceived.play(0)
 	if h <= 0:
 		death()

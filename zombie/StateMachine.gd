@@ -21,3 +21,7 @@ func _on_zombie_died():
 	print("argh")
 	zombie.rotation.z = 90.0
 	zombie.get_node("Collision").disabled = true
+	zombie.get_node("AttackZone").monitoring = false
+	zombie.get_node("AttackZone").monitorable = false
+	zombie.get_node("AggroZone").monitoring = false
+	zombie.get_node("AggroZone").monitorable = false
